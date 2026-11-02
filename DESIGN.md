@@ -202,7 +202,7 @@ Loaded weights: Jost 300–600, with `display=swap`.
 ### Hierarchy
 - **Display** (300, `display` clamp, line-height 1.08): the name in the Home hero only.
 - **Headline** (300, `headline` clamp, 1.12): page titles ("Experience", "Skills"), each followed by its script word.
-- **Title** (400, or 500 where it aids scanning; `title` clamp, 1.3): role titles, featured project titles, empty-state headings, the About headline.
+- **Title** (400, or 500 where it aids scanning; `title` clamp, 1.3): role titles, empty-state headings, the About headline.
 - **Subtitle** (500, 16px, 1.5): skill-group names, glance and summary terms, card titles in dense grids, short emphasis inside rows.
 - **Lead** (400, `lead` clamp, 1.75): page intros, the hero tagline, bio paragraphs. Keep intros to about 42rem (`max-w-2xl`).
 - **Body** (400, 15px on phones and 16px from 640px up, 1.625): everything else; bullets and card summaries step down to 14–15px. Keep line length within about 70 characters.
@@ -271,7 +271,8 @@ Refined and restrained: pill shapes, quiet hover changes, and an arrow that nudg
 - **Corner style:** 6px.
 - **Background:** Paper White on Studio Grey, with a 1px Hairline border that darkens to 30% Graphite on hover.
 - **Shadow strategy:** none at rest (see Elevation; soft lift on hover is allowed).
-- **Internal padding:** 20px; the feature variant uses 32px beside a 7:5 image split.
+- **Internal padding:** 20px.
+- **Project cards:** every card is the same size, in a grid of up to 3 columns with equal-height rows, and shows its full summary. Featured projects carry a label, not a larger card.
 - **Media:** screenshots sit in a Sunken Grey well and scale up 2% on hover over 700ms. Portrait phone screenshots are shown whole, never cropped. See Content states for missing images.
 
 ### Navigation
@@ -323,7 +324,7 @@ The sheet can be slow, unreachable, or partially filled. Visitors should never s
 
 **Images:**
 - **Loading:** the image well shows Sunken Grey at its final aspect ratio (16:10 on cards), so nothing jumps; the image fades in over 500ms once loaded (instantly under reduced motion). Images below the fold load lazily.
-- **No screenshots for a project:** a slim strip (80px tall, Sunken Grey, hairline below) with the platform icon in Bordeaux Text and "Screens coming soon" in Graphite Faint. The card keeps its text layout; a feature card falls back to the standard stacked layout.
+- **No screenshots for a project:** a slim strip (80px tall, Sunken Grey, hairline below) with the platform icon in Bordeaux Text and "Screens coming soon" in Graphite Faint. The card keeps its text layout.
 - **Broken image URL:** that image is removed silently. If it was the cover, the next screenshot becomes the cover; if none remain, the no-screenshots strip appears. Inside the gallery, a failed image shows "This image is unavailable." in Graphite Faint in place of the picture, and navigation still works.
 - **Portrait screenshots:** shown whole (`object-contain`) with breathing room, never cropped; landscape screenshots fill the well, anchored to the top.
 - **Alt text:** cover buttons are labelled "Open {project} screenshots"; gallery images are "{project} screenshot {n}".

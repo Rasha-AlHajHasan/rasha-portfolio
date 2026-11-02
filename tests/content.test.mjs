@@ -147,20 +147,20 @@ for (const tab of TABS) {
 
     const profile = await mod.getProfile();
     assert.equal(profile.name, "Rasha Al Haj Hasan");
-    assert.equal((await mod.getProjects()).length, 2, "Dynasoft template row is hidden (is_active FALSE)");
+    assert.equal((await mod.getProjects()).length, 3);
   });
 
   await check("edit without rebuild: a new project row creates a card", async () => {
     files["/projects"] +=
       '4,New Test App,"Summary, with comma","React, Vite",www.example.com,,https://demo.example,not-a-link,yes,0,\n';
     const all = await mod.getProjects();
-    assert.deepEqual(all.map((p) => p.title), ["School Information System (SIS) Mobile App", "New Test App", "ANC Fabrics Mobile App"]);
+    assert.deepEqual(all.map((p) => p.title), ["School Information System (SIS) Mobile App", "New Test App", "ANC Fabrics Mobile App", "Dynasoft Website"]);
     const p = all[1];
     assert.deepEqual(p.stack, ["React", "Vite"]);
     assert.equal(p.cover_url, "", "bare www. link dropped");
     assert.equal(p.github_url, "", "invalid link dropped");
     assert.deepEqual(p.gallery, []);
-    assert.equal((await mod.getFeaturedProjects()).length, 3);
+    assert.equal((await mod.getFeaturedProjects()).length, 4);
   });
 
   await check("is_active=FALSE hides a record in every row tab", async () => {

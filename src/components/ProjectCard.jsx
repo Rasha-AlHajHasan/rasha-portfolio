@@ -186,44 +186,31 @@ function Media({ title, images, onOpen, onFail, className }) {
   );
 }
 
-export default function ProjectCard({ project, variant = "default" }) {
+export default function ProjectCard({ project }) {
   const [viewerIndex, setViewerIndex] = useState(null);
   const [failed, setFailed] = useState(() => new Set());
 
   const stack = toList(project.stack);
   const images = getProjectImages(project).filter((src) => !failed.has(src));
-  // Side-by-side feature layout only when there is a screenshot to show
-  const feature = variant === "feature" && images.length > 0;
   const { title } = project;
   const onFail = (src) => setFailed((prev) => new Set(prev).add(src));
   const closeViewer = useCallback(() => setViewerIndex(null), []);
 
   const live = project.demo_url && !isPlaceholderHref(project.demo_url) ? project.demo_url : "";
   const repo = project.github_url && !isPlaceholderHref(project.github_url) ? project.github_url : "";
-  const tags = stack.slice(0, feature ? stack.length : MAX_TAGS);
+  const tags = stack.slice(0, MAX_TAGS);
   const hidden = stack.length - tags.length;
 
   return (
     <>
-      <article
-        className={cx(
-          "group grid h-full overflow-hidden rounded-md border border-line bg-surface transition-colors duration-300 hover:border-ink/30",
-          feature ? "md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]" : "grid-rows-[auto_1fr]"
-        )}
-      >
+      <article className="group grid h-full grid-rows-[auto_1fr] overflow-hidden rounded-md border border-line bg-surface transition-colors duration-300 hover:border-ink/30">
         {images.length > 0 ? (
-          <Media
-            title={title}
-            images={images}
-            onOpen={setViewerIndex}
-            onFail={onFail}
-            className={cx("aspect-[16/10]", feature && "md:aspect-auto md:h-full md:min-h-[18rem] md:border-b-0 md:border-e")}
-          />
+          <Media title={title} images={images} onOpen={setViewerIndex} onFail={onFail} className="aspect-[16/10]" />
         ) : (
           <NoScreens platform={project.platform} />
         )}
 
-        <div className={cx("flex min-w-0 flex-col p-5", feature && "md:justify-center md:p-8")}>
+        <div className="flex min-w-0 flex-col p-5">
           <p className="label flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>{t(`projects.platforms.${project.platform || "web"}`)}</span>
             {project.featured && (
@@ -234,19 +221,9 @@ export default function ProjectCard({ project, variant = "default" }) {
             )}
           </p>
 
-          <SheetText
-            item={project}
-            field="title"
-            as="h3"
-            className={cx("mt-3 font-normal text-ink", feature ? "text-heading" : "text-lg leading-snug")}
-          />
+          <SheetText item={project} field="title" as="h3" className="mt-3 text-lg font-normal leading-snug text-ink" />
 
-          <SheetText
-            item={project}
-            field="summary"
-            as="p"
-            className={cx("mt-2 text-sm leading-relaxed text-ink-soft", !feature && "line-clamp-4")}
-          />
+          <SheetText item={project} field="summary" as="p" className="mt-2 text-sm leading-relaxed text-ink-soft" />
 
           {tags.length > 0 && (
             <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={t("experience.technologies")}>

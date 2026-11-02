@@ -66,10 +66,6 @@ export default function Projects() {
 
   const visible = filter === ALL ? projects : projects.filter((p) => toList(p.stack).includes(filter));
 
-  // The first featured project (in display order) leads; the rest keep their order
-  const lead = visible.find((p) => p.featured);
-  const rest = visible.filter((p) => p !== lead);
-
   const count = projects.length === 1 ? t("projects.countOne") : t("projects.count", { n: projects.length });
 
   return (
@@ -102,11 +98,9 @@ export default function Projects() {
             >
               {visible.length === 0 && <EmptyState title={t("projects.noMatch")} />}
 
-              {lead && <ProjectCard project={lead} variant="feature" />}
-
-              {rest.length > 0 && (
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {rest.map((project) => (
+              {visible.length > 0 && (
+                <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {visible.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                   ))}
                 </div>

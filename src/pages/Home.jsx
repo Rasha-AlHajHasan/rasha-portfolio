@@ -225,7 +225,7 @@ export default function Home() {
           title={t("home.sections.projects")}
           action={more("/projects", "home.projects.all")}
         >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {selected.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
