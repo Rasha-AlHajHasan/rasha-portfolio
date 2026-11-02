@@ -1,0 +1,24 @@
+id,title,company,period,bullets,technologies,display_order,is_active,title_ar,bullets_ar
+1,Business Analyst / Full-Stack Developer,Dynasoft Technology,,"Developed and maintained software solutions using C#, ASP.NET Core, Flutter and SQL Server.
+Worked on a multi-tenant School Information System mobile app for teachers, parents and students, building the mobile interfaces and integrating them with ASP.NET Core Web APIs.
+Worked with SQL Server queries and stored procedures.
+Developed the ANC Fabrics mobile app with Flutter and REST APIs, and worked on its Android deployment and iOS testing.
+Contributed to a SaaS website for ERP, school management and medical software solutions, built with Blazor and ASP.NET Core.
+Worked closely with management and end users to understand requirements, troubleshoot issues and improve functionality.
+Followed Agile workflows, collaborating through Jira, Slack and ClickUp.",C# | ASP.NET Core | ASP.NET Core Web API | Blazor | Flutter | Dart | SQL Server | REST APIs | Jira | Slack | ClickUp,1,TRUE,محللة أعمال / مطوّرة Full-Stack,"تطوير وصيانة حلول برمجية باستخدام C#‎ و ASP.NET Core و Flutter و SQL Server.
+العمل على تطبيق هاتف لنظام معلومات مدرسي متعدد المستأجرين (Multi-tenant) يخدم المعلمين وأولياء الأمور والطلاب، من خلال بناء واجهات التطبيق وربطها بواجهات ASP.NET Core Web API.
+العمل على استعلامات SQL Server والإجراءات المخزّنة (Stored Procedures).
+تطوير تطبيق ANC Fabrics للهاتف باستخدام Flutter وواجهات REST API، والعمل على نشره على Android واختباره على iOS.
+المساهمة في موقع SaaS لحلول ERP وإدارة المدارس والبرمجيات الطبية، مبني باستخدام Blazor و ASP.NET Core.
+التعاون الوثيق مع الإدارة والمستخدمين النهائيين لفهم المتطلبات وحل المشكلات وتحسين الوظائف.
+العمل وفق منهجية Agile والتعاون عبر Jira و Slack و ClickUp."
+2,Lead Generator,ERP Cloud (Odoo Partner),,"Prospected potential customers for Odoo solutions through LinkedIn and email outreach.
+Scheduled product demos and followed up with prospects.",Odoo | LinkedIn,2,TRUE,مسؤولة توليد العملاء المحتملين (Lead Generation),"البحث عن عملاء محتملين لحلول Odoo والتواصل معهم عبر LinkedIn والبريد الإلكتروني.
+جدولة العروض التوضيحية ومتابعة العملاء المحتملين."
+3,Odoo Functional Intern,ERP Cloud (Odoo Partner),,"Worked with the Odoo Sales, Inventory and Accounting modules.
+Took part in requirements gathering and client discussions.
+Supported Odoo ERP demonstrations.
+Helped prepare proposals and explain Odoo solutions to prospective customers.",Odoo | Odoo Sales | Odoo Inventory | Odoo Accounting,3,TRUE,متدرّبة في الاستشارات الوظيفية لنظام Odoo,"العمل على وحدات المبيعات والمخزون والمحاسبة في Odoo (Sales و Inventory و Accounting).
+المشاركة في جمع المتطلبات والنقاشات مع العملاء.
+دعم العروض التوضيحية لنظام Odoo ERP.
+المساعدة في إعداد المقترحات وشرح حلول Odoo للعملاء المحتملين."

@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T23:04:04.052Z",
+  "title": "Design System: Rasha Al Haj Hasan — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "studio-grey": {
+        "role": "neutral",
+        "displayName": "Studio Grey",
+        "cssVar": "--c-canvas",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "cssVar": "--c-surface",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "sunken-grey": {
+        "role": "neutral",
+        "displayName": "Sunken Grey",
+        "cssVar": "--c-sunken",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "cssVar": "--c-line",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ],
+        "note": "Decorative rules only (1.3–1.5:1); never the sole sign of a state."
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "cssVar": "--c-ink",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "graphite-soft": {
+        "role": "neutral",
+        "displayName": "Graphite Soft",
+        "cssVar": "--c-ink-soft",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "graphite-faint": {
+        "role": "neutral",
+        "displayName": "Graphite Faint",
+        "cssVar": "--c-ink-faint",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "bordeaux-thread": {
+        "role": "primary",
+        "displayName": "Bordeaux Thread",
+        "cssVar": "--c-wine",
+        "tonalRamp": [
+          "oklch(15% 0.04 17)",
+          "oklch(25% 0.08 17)",
+          "oklch(35% 0.11 17)",
+          "oklch(45% 0.13 17)",
+          "oklch(57% 0.12 17)",
+          "oklch(70% 0.09 17)",
+          "oklch(83% 0.05 17)",
+          "oklch(95% 0.015 17)"
+        ],
+        "note": "Decorative lines only in dark mode (2.7:1 on the dark canvas)."
+      },
+      "bordeaux-text": {
+        "role": "primary",
+        "displayName": "Bordeaux Text",
+        "cssVar": "--c-wine-text",
+        "tonalRamp": [
+          "oklch(15% 0.04 17)",
+          "oklch(25% 0.08 17)",
+          "oklch(35% 0.11 17)",
+          "oklch(45% 0.13 17)",
+          "oklch(57% 0.12 17)",
+          "oklch(70% 0.09 17)",
+          "oklch(83% 0.05 17)",
+          "oklch(95% 0.015 17)"
+        ],
+        "note": "Accent text and every interactive state: focus ring, current page, hover underline. ≥6.1:1 in both themes."
+      },
+      "bordeaux-tint": {
+        "role": "primary",
+        "displayName": "Bordeaux Tint",
+        "cssVar": "--c-wine-tint",
+        "tonalRamp": [
+          "oklch(15% 0.04 17)",
+          "oklch(25% 0.08 17)",
+          "oklch(35% 0.11 17)",
+          "oklch(45% 0.13 17)",
+          "oklch(57% 0.12 17)",
+          "oklch(70% 0.09 17)",
+          "oklch(83% 0.05 17)",
+          "oklch(95% 0.015 17)"
+        ]
+      },
+      "studio-grey-dark": {
+        "role": "neutral",
+        "displayName": "Studio Grey (dark)",
+        "cssVar": "--c-canvas"
+      },
+      "paper-white-dark": {
+        "role": "neutral",
+        "displayName": "Paper White (dark)",
+        "cssVar": "--c-surface"
+      },
+      "sunken-grey-dark": {
+        "role": "neutral",
+        "displayName": "Sunken Grey (dark)",
+        "cssVar": "--c-sunken"
+      },
+      "hairline-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (dark)",
+        "cssVar": "--c-line"
+      },
+      "graphite-dark": {
+        "role": "neutral",
+        "displayName": "Graphite (dark)",
+        "cssVar": "--c-ink"
+      },
+      "graphite-soft-dark": {
+        "role": "neutral",
+        "displayName": "Graphite Soft (dark)",
+        "cssVar": "--c-ink-soft"
+      },
+      "graphite-faint-dark": {
+        "role": "neutral",
+        "displayName": "Graphite Faint (dark)",
+        "cssVar": "--c-ink-faint"
+      },
+      "bordeaux-thread-dark": {
+        "role": "primary",
+        "displayName": "Bordeaux Thread (dark)",
+        "cssVar": "--c-wine"
+      },
+      "bordeaux-text-dark": {
+        "role": "primary",
+        "displayName": "Bordeaux Text (dark)",
+        "cssVar": "--c-wine-text"
+      },
+      "bordeaux-tint-dark": {
+        "role": "primary",
+        "displayName": "Bordeaux Tint (dark)",
+        "cssVar": "--c-wine-tint"
+      },
+      "device-bezel": {
+        "role": "neutral",
+        "displayName": "Device Bezel",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(25% 0.005 265)",
+          "oklch(35% 0.006 265)",
+          "oklch(47% 0.007 265)",
+          "oklch(60% 0.007 265)",
+          "oklch(73% 0.006 265)",
+          "oklch(85% 0.005 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "on-bordeaux": {
+        "role": "neutral",
+        "displayName": "On Bordeaux"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the Home hero only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles, each followed by one script word."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Role titles, featured project titles, empty-state headings, About headline; 400, or 500 where it aids scanning."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Skill-group names, glance and summary terms, card titles in dense grids, short emphasis (500)."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Page intros, hero tagline and bio paragraphs; keep to about 42rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text: 15px on phones, 16px from 640px."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Pill buttons and text links."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tracked uppercase labels and section-rule titles; 12px and untracked in Arabic."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "One decorative, aria-hidden word per page header."
+      }
+    },
+    "shadows": [
+      {
+        "name": "device",
+        "value": "0 1px 2px rgb(0 0 0 / 0.06), 0 24px 48px -24px rgb(0 0 0 / 0.35)",
+        "purpose": "Hardware mock-ups in the hero showcase only."
+      },
+      {
+        "name": "chip",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Technology chips floating beside the devices."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-editorial",
+        "value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "purpose": "Every transition and reveal."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0→1, translateY 10px→0, 500ms, once on entering the viewport",
+        "purpose": "Content blocks as they scroll in."
+      },
+      {
+        "name": "hover-color",
+        "value": "300ms",
+        "purpose": "Colour and border changes on hover."
+      },
+      {
+        "name": "nav-underline",
+        "value": "spring (stiffness 380, damping 34)",
+        "purpose": "Active-page underline moving between desktop links."
+      },
+      {
+        "name": "showcase-scene",
+        "value": "5600ms (8000ms with reduced motion, cross-fade only)",
+        "purpose": "Hero device showcase scene changes."
+      },
+      {
+        "name": "page-header",
+        "value": "opacity 0→1, translateY 8px→0, 500ms on load",
+        "purpose": "Page titles."
+      },
+      {
+        "name": "mobile-menu",
+        "value": "opacity 0→1, translateY -6px→0, 200ms",
+        "purpose": "Mobile navigation dropdown."
+      },
+      {
+        "name": "gallery",
+        "value": "cross-fade 200ms",
+        "purpose": "Screenshot viewer overlay and image changes; previous/next follow the reading direction."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "Framer Motion reducedMotion='user' (opacity only) + CSS animations/transitions ≈0ms",
+        "purpose": "prefers-reduced-motion: no movement, scale, typing, resizing, blinking or smooth scroll."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "focusRing": {
+      "value": "2px solid rgb(var(--c-wine-text)); outline-offset: 2px; border-radius: 2px",
+      "onBordeaux": "2px solid #FFFFFF",
+      "purpose": "Every :focus-visible state. Bordeaux Text keeps ≥3:1 in both themes."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid graphite pill for the main action in a section, e.g. 'View projects'.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View projects <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 9999px; background: rgb(var(--c-ink, 20 20 22)); color: rgb(var(--c-canvas, 233 234 236)); font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: background-color 300ms cubic-bezier(0.2, 0.7, 0.2, 1); } .ds-btn-primary svg { transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1); } .ds-btn-primary:hover { background: rgb(var(--c-ink, 20 20 22) / 0.85); } .ds-btn-primary:hover svg { transform: translateX(2px); } [dir='rtl'] .ds-btn-primary svg { transform: scaleX(-1); } [dir='rtl'] .ds-btn-primary:hover svg { transform: scaleX(-1) translateX(2px); } .ds-btn-primary:focus-visible { outline: 2px solid rgb(var(--c-wine-text, 122 31 43)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary pill beside a primary action, e.g. 'Contact me' or 'Copy email'.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Contact me</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 9999px; border: 1px solid rgb(var(--c-ink, 20 20 22) / 0.25); background: transparent; color: rgb(var(--c-ink, 20 20 22)); font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 300ms, background-color 300ms; } .ds-btn-outline:hover { border-color: rgb(var(--c-ink, 20 20 22)); background: rgb(var(--c-surface, 255 255 255)); } .ds-btn-outline:focus-visible { outline: 2px solid rgb(var(--c-wine-text, 122 31 43)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Underlined text action for 'More about me', 'View project' and section-rule actions; the underline turns Bordeaux on hover.",
+      "html": "<a class=\"ds-btn-text\" href=\"#\">More about me <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-text { display: inline-flex; align-items: center; gap: 8px; padding: 4px 0; color: rgb(var(--c-ink, 20 20 22)); font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: underline; text-decoration-color: rgb(var(--c-line, 208 210 214)); text-decoration-thickness: 1px; text-underline-offset: 6px; transition: text-decoration-color 300ms; } .ds-btn-text svg { transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1); } .ds-btn-text:hover, .ds-btn-text:focus-visible { text-decoration-color: rgb(var(--c-wine-text, 122 31 43)); } .ds-btn-text:hover svg { transform: translateX(2px); } [dir='rtl'] .ds-btn-text svg { transform: scaleX(-1); } [dir='rtl'] .ds-btn-text:hover svg { transform: scaleX(-1) translateX(2px); } .ds-btn-text:focus-visible { outline: 2px solid rgb(var(--c-wine-text, 122 31 43)); outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Technology Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Hairline pill listing a technology on project cards and experience entries; always left-to-right.",
+      "html": "<span class=\"ds-tag\" dir=\"ltr\">ASP.NET Core</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 9999px; border: 1px solid rgb(var(--c-line, 208 210 214)); color: rgb(var(--c-ink-soft, 64 66 70)); font-family: Jost, system-ui, sans-serif; font-size: 12px; line-height: 1.6; }"
+    },
+    {
+      "name": "Thread Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Small tracked uppercase label led by a 24px Bordeaux hairline; opens every page header and the hero.",
+      "html": "<p class=\"ds-label\"><span class=\"ds-label-thread\"></span>Career</p>",
+      "css": ".ds-label { display: flex; align-items: center; gap: 12px; margin: 0; font-family: Jost, system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(var(--c-ink-faint, 92 95 100)); } .ds-label-thread { display: block; width: 24px; height: 1px; flex-shrink: 0; background: rgb(var(--c-wine, 122 31 43)); }"
+    },
+    {
+      "name": "Section Rule",
+      "kind": "custom",
+      "refersTo": "section-rule",
+      "description": "Numbered section opener: Bordeaux number, tracked title, a hairline filling the row, optional action at the end.",
+      "html": "<div class=\"ds-rule\"><span class=\"ds-rule-num\">01</span><h2 class=\"ds-rule-title\">Introduction</h2><span class=\"ds-rule-line\"></span><a class=\"ds-rule-action\" href=\"#\">More about me</a></div>",
+      "css": ".ds-rule { display: flex; align-items: center; gap: 16px; font-family: Jost, system-ui, sans-serif; } .ds-rule-num { font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; color: rgb(var(--c-wine-text, 122 31 43)); } .ds-rule-title { margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(var(--c-ink, 20 20 22)); } .ds-rule-line { flex: 1; min-width: 16px; height: 1px; background: rgb(var(--c-line, 208 210 214)); } .ds-rule-action { font-size: 12px; font-weight: 500; color: rgb(var(--c-ink, 20 20 22)); text-decoration: underline; text-decoration-color: rgb(var(--c-line, 208 210 214)); text-underline-offset: 6px; } .ds-rule-action:hover { text-decoration-color: rgb(var(--c-wine-text, 122 31 43)); }"
+    },
+    {
+      "name": "Desktop Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Header links: faint until hovered; the current page is Graphite with a 1px Bordeaux Text underline and aria-current.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Home</a><a href=\"#\">Projects</a><a href=\"#\" class=\"is-active\" aria-current=\"page\">Experience</a><a href=\"#\">About</a><a href=\"#\">Skills</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 20px; font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; } .ds-nav a { position: relative; padding: 8px 4px; font-size: 14px; color: rgb(var(--c-ink-faint, 92 95 100)); text-decoration: none; transition: color 300ms; } .ds-nav a:hover { color: rgb(var(--c-ink, 20 20 22)); } .ds-nav a.is-active { color: rgb(var(--c-ink, 20 20 22)); } .ds-nav a.is-active::after { content: ''; position: absolute; inset-inline: 4px; bottom: -1px; height: 1px; background: rgb(var(--c-wine-text, 122 31 43)); } .ds-nav a:focus-visible { outline: 2px solid rgb(var(--c-wine-text, 122 31 43)); outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "custom",
+      "refersTo": "language-switch",
+      "description": "Pill segmented control for EN / AR; the active option is filled Graphite.",
+      "html": "<div class=\"ds-lang\" role=\"group\" aria-label=\"Language\"><button type=\"button\" aria-pressed=\"true\">EN</button><button type=\"button\" aria-pressed=\"false\" lang=\"ar\">AR</button></div>",
+      "css": ".ds-lang { display: inline-flex; align-items: center; height: 36px; padding: 2px; border-radius: 9999px; border: 1px solid rgb(var(--c-line, 208 210 214)); } .ds-lang button { height: 100%; min-width: 36px; padding: 0 6px; border: 0; border-radius: 9999px; background: transparent; font-family: Jost, system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; color: rgb(var(--c-ink-faint, 92 95 100)); cursor: pointer; transition: color 300ms, background-color 300ms; } .ds-lang button:hover { color: rgb(var(--c-ink, 20 20 22)); } .ds-lang button[aria-pressed='true'] { background: rgb(var(--c-ink, 20 20 22)); color: rgb(var(--c-canvas, 233 234 236)); } .ds-lang button:focus-visible { outline: 2px solid rgb(var(--c-wine-text, 122 31 43)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Paper White card with 6px corners and a hairline border that darkens on hover; screenshot well above, platform label, title, summary and tags below.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-media\"></div><div class=\"ds-card-body\"><p class=\"ds-card-label\">Mobile app <span class=\"ds-card-featured\">Featured</span></p><h3 class=\"ds-card-title\">ANC Fabrics Mobile App</h3><p class=\"ds-card-summary\">Cross-platform app integrated with Business Central for orders, invoices and inventory.</p><span class=\"ds-card-tag\" dir=\"ltr\">Flutter</span> <span class=\"ds-card-tag\" dir=\"ltr\">Dart</span></div></article>",
+      "css": ".ds-card { max-width: 360px; overflow: hidden; border-radius: 6px; border: 1px solid rgb(var(--c-line, 208 210 214)); background: rgb(var(--c-surface, 255 255 255)); font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; transition: border-color 300ms; } .ds-card:hover { border-color: rgb(var(--c-ink, 20 20 22) / 0.3); } .ds-card-media { aspect-ratio: 16 / 10; background: rgb(var(--c-sunken, 243 244 245)); border-bottom: 1px solid rgb(var(--c-line, 208 210 214)); } .ds-card-body { padding: 20px; } .ds-card-label { display: flex; gap: 12px; margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(var(--c-ink-faint, 92 95 100)); } .ds-card-featured { color: rgb(var(--c-wine-text, 122 31 43)); } .ds-card-title { margin: 12px 0 0; font-size: 18px; font-weight: 400; line-height: 1.35; color: rgb(var(--c-ink, 20 20 22)); } .ds-card-summary { margin: 8px 0 16px; font-size: 14px; line-height: 1.625; color: rgb(var(--c-ink-soft, 64 66 70)); } .ds-card-tag { display: inline-flex; padding: 2px 10px; border-radius: 9999px; border: 1px solid rgb(var(--c-line, 208 210 214)); font-size: 12px; color: rgb(var(--c-ink-soft, 64 66 70)); }"
+    },
+    {
+      "name": "Contact Band",
+      "kind": "custom",
+      "refersTo": "contact-band",
+      "description": "The Home page's closing Bordeaux ribbon: script line, short invitation, white pill buttons. The single sanctioned large use of the accent.",
+      "html": "<div class=\"ds-band\"><p class=\"ds-band-script\">let’s talk</p><p class=\"ds-band-text\">Open to freelance work, product roles and software collaborations.</p><a class=\"ds-band-btn\" href=\"#\">Contact me</a></div>",
+      "css": ".ds-band { padding: 48px 40px; border-radius: 6px; background: rgb(var(--c-wine, 122 31 43)); color: #fff; text-align: center; font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; } .ds-band-script { margin: 0; font-family: Allura, 'Aref Ruqaa', cursive; font-size: 48px; line-height: 1; } .ds-band-text { max-width: 28rem; margin: 16px auto 28px; font-size: 15px; line-height: 1.625; color: rgb(255 255 255 / 0.85); } .ds-band-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 9999px; background: #fff; color: #141416; font-size: 14px; font-weight: 500; text-decoration: none; transition: background-color 300ms; } .ds-band-btn:hover { background: rgb(255 255 255 / 0.9); } .ds-band-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Empty State",
+      "kind": "custom",
+      "refersTo": "empty-state",
+      "description": "Shown when a sheet tab has no active rows: a calm line between two hairlines and a pointer somewhere useful. Never an error.",
+      "html": "<div class=\"ds-empty\"><p class=\"ds-empty-title\">Experience is being updated</p><p class=\"ds-empty-text\">Roles added to the spreadsheet will appear here.</p></div>",
+      "css": ".ds-empty { padding: 40px 0; border-block: 1px solid rgb(var(--c-line, 208 210 214)); text-align: center; font-family: Jost, 'IBM Plex Sans Arabic', system-ui, sans-serif; } .ds-empty-title { margin: 0; font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); font-weight: 300; line-height: 1.3; color: rgb(var(--c-ink, 20 20 22)); } .ds-empty-text { max-width: 28rem; margin: 8px auto 0; font-size: 14px; line-height: 1.625; color: rgb(var(--c-ink-faint, 92 95 100)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Developer's Journal",
+    "overview": "The site reads like a working developer's journal: real code and real devices on the opening page, each page header signed with one handwritten word, and every page framed in an orderly editorial grid of hairline rules, numbered sections and small tracked labels. The working parts are shown, from the code editor in the hero to the typed localhost address, but the frame around them stays calm, so the work reads as considered rather than busy.\n\nIt is warm and personal, not corporate. The warmth comes from three quiet sources rather than from colour or decoration: a single Bordeaux Thread that marks Rasha's presence (the dot after her name, the active-page underline, section numbers, the focus ring), one script word per page that feels written by hand, and generous space that lets each fact breathe. Everything else is Studio Grey, Paper White and Graphite.\n\nDensity is low and unhurried: one idea per row, long line-height, wide gutters. The system holds its character in English and Arabic, light and dark, from a 320px phone to a wide desktop, and with whatever content the Google Sheet currently holds. Sparse content is normal, and the layout should look intentional with a single item as much as with ten. Accessibility is part of the identity, not a layer on top: every state the Bordeaux Thread marks must also be readable, operable by keyboard and calm under reduced motion.\n\nItems marked Pending describe the target behaviour where today's code differs; implement them before treating the rule as met.",
+    "keyCharacteristics": [
+      "Cool grey canvas, white working surfaces, graphite type, one burgundy accent.",
+      "Light-weight Jost display type (300), regular body (400), medium (500) for titles, labels and buttons.",
+      "Structure drawn with 1px hairlines and numbered section rules, not boxes and fills.",
+      "Pill-shaped controls and tags; gently rounded (6px) cards.",
+      "Physical objects (phone, laptop, browser) are the only things that cast real shadows.",
+      "Fully mirrored right-to-left in Arabic, using logical properties throughout.",
+      "WCAG 2.2 AA in both themes and both languages."
+    ],
+    "rules": [
+      {
+        "name": "The One Thread Rule",
+        "body": "Bordeaux is for graphics, rules, dots, numbers, small labels and interactive states, never for body text, headings or large fills. The single permitted fill is the Home contact band, the one moment the thread widens into a ribbon.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accessible Thread Rule",
+        "body": "When Bordeaux signals a state (focus, current page, hover, selection), it is Bordeaux Text, never Bordeaux Thread, so the cue clears 3:1 in both themes. It accompanies a second cue (underline, border, weight, icon or fill change) and is never the only sign of the state. One Bordeaux cue per element at a time. Pending: four state cues currently use Bordeaux Thread, which is 2.7:1 in dark mode: the focus outline, the desktop active-page underline, the Projects filter-chip hover border and the Contact channel icon's hover border. Switch all four to Bordeaux Text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Theme Pair Rule",
+        "body": "Every colour is a role token with a light and a dark value. Hard-coded colours are allowed only for physical objects (bezels, editor chrome and syntax colours, the gallery's dark backdrop) and for content placed on the burgundy band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Display Rule",
+        "body": "Display and headline sizes stay Light (300); hierarchy at the top of a page comes from size, not weight. Medium (500) is the weight for scanning and structure: subtitles, titles that sit in dense rows, labels, buttons and short emphasis. Body text stays Regular (400). 600 is loaded but not used; reach for size or spacing before reaching for it.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Script Word Rule",
+        "body": "The script face appears once per page, beside the page title (plus the single script line in the hero and the contact band). It is decorative and aria-hidden, and it never carries information.",
+        "section": "typography"
+      },
+      {
+        "name": "The Joined Letters Rule",
+        "body": "Arabic text is never letter-spaced (tracking breaks the joins) and gets a taller line-height (1.9) for paragraphs and list items. Arabic at 14px or smaller may step up to 500 for legibility; it never goes below 12px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Structure is drawn with 1px Hairline rules (top/bottom borders and dividers), not with filled boxes. Reach for a rule before a background.",
+        "section": "layout"
+      },
+      {
+        "name": "The Numbered Section Rule",
+        "body": "Sections open with a section rule: a Bordeaux number (\"01\"), a tracked label, a hairline that fills the row, and an optional action link at the end. Numbers count only the sections actually shown.",
+        "section": "layout"
+      },
+      {
+        "name": "The Mirror Rule",
+        "body": "Every layout is checked in Arabic at 320px and at desktop width before it ships. If something has to be written twice (once for LTR, once for RTL), it is probably using a physical property where a logical one belongs.",
+        "section": "layout"
+      },
+      {
+        "name": "The Objects-Cast-Shadows Rule",
+        "body": "Physical objects cast real shadows; interface surfaces get, at most, a soft lift for state.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use role tokens (`canvas`, `surface`, `ink`, `line`, `wine`, `wine-text`) so every new element works in light and dark at once.",
+      "Do draw structure with 1px Hairline rules and numbered section rules before reaching for boxes or fills.",
+      "Do use Bordeaux Text for every interactive state (focus ring, current page, hover underline) and pair it with a second cue (The Accessible Thread Rule).",
+      "Do set display and headline in Jost Light (300), body in Regular (400), and use Medium (500) for titles, subtitles, labels and buttons where it helps scanning.",
+      "Do give each new page header one script word, aria-hidden.",
+      "Do use logical properties (start/end), mirror directional icons, and check every layout in Arabic at 320px and at desktop width, with technology names, emails and URLs kept left-to-right.",
+      "Do design every content block for one item, many items, a missing field and a missing translation, and give every list a loading skeleton and an empty state.",
+      "Do keep controls as pills at least 44px tall (header controls 36px), with a visible 2px focus ring.",
+      "Do respect reduced motion: opacity-only transitions, no typing or resizing, nothing that blinks."
+    ],
+    "donts": [
+      "Don't set body text, headings or long passages in Bordeaux, use Bordeaux Thread as a state indicator in dark mode, or add a second accent colour.",
+      "Don't signal a state with colour alone or with a Hairline-coloured border alone.",
+      "Don't add shadows to interface surfaces at rest. Real shadows belong to physical objects, and lift is for hover or floating state only.",
+      "Don't use weight 600 or above, set display or headline text heavier than 300, or letter-space Arabic text.",
+      "Don't use the script face for information, navigation or more than one word per page header.",
+      "Don't hard-code colours outside physical objects and the contact band.",
+      "Don't show empty placeholders, error codes or broken images: hide what is missing and use the designed fallback states.",
+      "Don't use physical left/right properties outside the device stage, or mirror icons that are not directional.",
+      "Don't add automatic motion without a pause mechanism, or motion that ignores reduced-motion settings."
+    ]
+  }
+}

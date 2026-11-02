@@ -1,0 +1,7 @@
+id,type,label,value,url,display_order,is_active,value_ar
+1,email,Email,rashaalhajhasan@gmail.com,,1,TRUE,
+2,phone,Phone,+961 3 676 425,,2,TRUE,
+3,whatsapp,WhatsApp,Start a chat,,3,FALSE,
+4,linkedin,LinkedIn,,https://www.linkedin.com/in/rashahajhasan,4,TRUE,
+5,github,GitHub,,https://github.com/Rasha-AlHajHasan,5,TRUE,
+6,location,Location,Lebanon,,6,TRUE,لبنان

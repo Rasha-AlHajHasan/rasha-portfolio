@@ -1,0 +1,3 @@
+id,title,summary,technologies,cover_url,screenshots,demo_url,github_url,featured,display_order,is_active
+1,ANC Fabrics Mobile App,"Cross-platform mobile application integrated with Microsoft Dynamics 365 Business Central, providing customers across five countries with access to orders, invoices, account balances, and inventory information.",Flutter | Dart | REST APIs | Business Central,,,,,TRUE,1,TRUE
+2,Dynasoft Website,,,,,,,FALSE,2,FALSE

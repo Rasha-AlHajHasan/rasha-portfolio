@@ -1,0 +1,40 @@
+id,name,category,display_order,is_active,name_ar
+1,C#,backend,1,TRUE,
+2,.NET,backend,2,TRUE,
+3,ASP.NET Core,backend,3,TRUE,
+4,ASP.NET Core Web API,backend,4,TRUE,
+5,ASP.NET Core MVC / Razor,backend,5,TRUE,
+6,Entity Framework Core,backend,6,TRUE,
+7,REST API development,backend,7,TRUE,تطوير واجهات REST API
+8,Flutter,mobile,8,TRUE,
+9,Dart,mobile,9,TRUE,
+10,Android development and deployment,mobile,10,TRUE,تطوير التطبيقات ونشرها على Android
+11,iOS application testing,mobile,11,TRUE,اختبار التطبيقات على iOS
+12,Mobile API integration,mobile,12,TRUE,ربط تطبيقات الهاتف بواجهات API
+13,React,frontend,13,TRUE,
+14,JavaScript,frontend,14,TRUE,
+15,TypeScript,frontend,15,TRUE,
+16,HTML,frontend,16,TRUE,
+17,CSS,frontend,17,TRUE,
+18,Tailwind CSS,frontend,18,TRUE,
+19,Blazor,frontend,19,TRUE,
+20,Microsoft SQL Server,databases,20,TRUE,
+21,T-SQL,databases,21,TRUE,
+22,Stored procedures,databases,22,TRUE,الإجراءات المخزّنة (Stored Procedures)
+23,Database queries,databases,23,TRUE,استعلامات قواعد البيانات
+24,Odoo ERP,erp,24,TRUE,
+25,Odoo Sales,erp,25,TRUE,
+26,Odoo Inventory,erp,26,TRUE,
+27,Odoo Accounting,erp,27,TRUE,
+28,Microsoft Dynamics 365 Business Central,erp,28,TRUE,
+29,ERP requirements analysis,erp,29,TRUE,تحليل متطلبات أنظمة ERP
+30,Functional consulting,erp,30,TRUE,الاستشارات الوظيفية
+31,Pre-sales demonstrations,erp,31,TRUE,العروض التوضيحية لما قبل البيع
+32,Business analysis,erp,32,TRUE,تحليل الأعمال
+33,Git,tools,33,TRUE,
+34,GitHub,tools,34,TRUE,
+35,Jira,tools,35,TRUE,
+36,Slack,tools,36,TRUE,
+37,ClickUp,tools,37,TRUE,
+38,Agile development workflows,tools,38,TRUE,منهجية Agile في التطوير
+39,Claude Code,tools,39,TRUE,

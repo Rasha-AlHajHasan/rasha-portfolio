@@ -1,0 +1,21 @@
+node_modules
+dist
+.vite
+
+# Env files: only the two without private values are committed
+.env
+.env.*
+!.env.example
+!.env.development
+# Local env overrides (.env.local, .env.production.local, …)
+*.local
+
+# Machine-specific tooling config
+.impeccable/config.local.json
+.impeccable/live/
+.github/hooks/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

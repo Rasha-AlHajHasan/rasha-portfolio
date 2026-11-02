@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------------
+   Design tokens (RGB channels, consumed by tailwind.config.cjs)
+   ------------------------------------------------------------------------ */
+:root {
+  --c-canvas: 233 234 236; /* #E9EAEC cool grey page */
+  --c-surface: 255 255 255;
+  --c-sunken: 243 244 245; /* #F3F4F5 */
+  --c-line: 208 210 214; /* #D0D2D6 */
+  --c-ink: 20 20 22; /* #141416 primary text */
+  --c-ink-soft: 64 66 70; /* #404246 secondary text */
+  --c-ink-faint: 92 95 100; /* #5C5F64 labels — 5:1 on canvas */
+  --c-wine: 122 31 43; /* #7A1F2B graphics */
+  --c-wine-text: 122 31 43; /* small accent labels */
+  --c-wine-tint: 243 231 233;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --c-canvas: 14 14 16; /* #0E0E10 */
+  --c-surface: 26 26 29; /* #1A1A1D charcoal */
+  --c-sunken: 21 21 24;
+  --c-line: 50 50 56;
+  --c-ink: 244 244 245;
+  --c-ink-soft: 202 203 207;
+  --c-ink-faint: 156 158 164;
+  --c-wine: 158 47 64; /* #9E2F40 — brighter so rules stay visible */
+  --c-wine-text: 214 128 142; /* #D6808E — readable on charcoal */
+  --c-wine-tint: 48 24 29;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    @apply bg-canvas;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-canvas font-sans text-[15px] leading-relaxed text-ink antialiased sm:text-base;
+  }
+
+  ::selection {
+    @apply bg-wine text-white;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline outline-2 outline-offset-2 outline-wine;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  /* Arabic letters must join: tracking would break them apart */
+  :lang(ar) {
+    letter-spacing: 0 !important;
+  }
+
+  /* Arabic script needs a little more line height than Latin */
+  :lang(ar) p,
+  :lang(ar) li {
+    line-height: 1.9;
+  }
+}
+
+@layer components {
+  /* Small tracked uppercase label — the reference's "INTRODUCTION ——" style */
+  .label {
+    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-ink-faint;
+  }
+
+  :lang(ar) .label {
+    @apply text-xs;
+  }
+
+  /* Decorative script word, used sparingly */
+  .script {
+    @apply font-script font-normal normal-case tracking-normal;
+    line-height: 1;
+  }
+
+  :lang(ar) .script {
+    line-height: 1.6;
+  }
+}
+
+/* Blinking caret in the hero showcase */
+@keyframes showcase-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.showcase-caret {
+  animation: showcase-caret 1.05s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Published Google Sheets CSV URLs come from repository variables
+      # (Settings → Secrets and variables → Actions → Variables). A missing
+      # variable makes that tab show its bundled copy from src/content/fallback/.
+      - name: Build
+        run: |
+          for name in PROFILE PROJECTS EXPERIENCE ABOUT SKILLS CONTACT STATS BACKGROUND; do
+            var="VITE_SHEET_${name}_URL"
+            [ -n "${!var}" ] || echo "::warning::$var is not set — the ${name,,} tab will use its bundled copy"
+          done
+          npm run build
+        env:
+          VITE_SHEET_PROFILE_URL: ${{ vars.VITE_SHEET_PROFILE_URL }}
+          VITE_SHEET_PROJECTS_URL: ${{ vars.VITE_SHEET_PROJECTS_URL }}
+          VITE_SHEET_EXPERIENCE_URL: ${{ vars.VITE_SHEET_EXPERIENCE_URL }}
+          VITE_SHEET_ABOUT_URL: ${{ vars.VITE_SHEET_ABOUT_URL }}
+          VITE_SHEET_SKILLS_URL: ${{ vars.VITE_SHEET_SKILLS_URL }}
+          VITE_SHEET_CONTACT_URL: ${{ vars.VITE_SHEET_CONTACT_URL }}
+          VITE_SHEET_STATS_URL: ${{ vars.VITE_SHEET_STATS_URL }}
+          VITE_SHEET_BACKGROUND_URL: ${{ vars.VITE_SHEET_BACKGROUND_URL }}
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
