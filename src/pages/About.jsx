@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 
 import { getAbout, getBackground, getProfile } from "../data/content";
-import { useI18n } from "../i18n/context";
-import { ButtonLink, EmptyState, LoadingBlock, Localized, PageHeader, Reveal, SectionRule } from "../components/ui";
+import { t } from "../content/text";
+import { ButtonLink, EmptyState, LoadingBlock, SheetText, PageHeader, Reveal, SectionRule } from "../components/ui";
 
 function settled(result, label) {
   if (result.status === "fulfilled") return result.value;
@@ -12,7 +12,6 @@ function settled(result, label) {
 }
 
 export default function About() {
-  const { t, lang, pick } = useI18n();
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -42,8 +41,7 @@ export default function About() {
   const { about, profile, background } = data;
   const highlights = about?.highlights || [];
   const focus = about?.focus || [];
-  const bio = pick(profile, "bio");
-  const paragraphs = (bio.value || "").split(/\n+/).filter(Boolean);
+  const paragraphs = (profile?.bio || "").split(/\n+/).filter(Boolean);
 
   if (!profile && !about) {
     return (
@@ -64,17 +62,13 @@ export default function About() {
           <h2 id="about-intro" className="sr-only">
             {t("about.intro")}
           </h2>
-          {(about?.headline || about?.headline_ar) && (
-            <Localized item={about} field="headline" as="p" className="mb-5 text-heading font-light text-ink" />
+          {about?.headline && (
+            <SheetText item={about} field="headline" as="p" className="mb-5 text-heading font-light text-ink" />
           )}
           {!about?.headline && profile?.tagline && (
-            <Localized item={profile} field="tagline" as="p" className="mb-5 text-heading font-light text-ink" />
+            <SheetText item={profile} field="tagline" as="p" className="mb-5 text-heading font-light text-ink" />
           )}
-          <div
-            className="grid gap-4 border-s border-wine ps-5"
-            lang={bio.lang !== lang ? bio.lang : undefined}
-            dir={bio.lang !== lang ? "auto" : undefined}
-          >
+          <div className="grid gap-4 border-s border-wine ps-5">
             {paragraphs.map((p, i) => (
               <p key={i} className="text-lead text-ink-soft">
                 {p}
@@ -92,10 +86,10 @@ export default function About() {
               {highlights.map((h) => (
                 <div key={h.id} className="flex items-baseline justify-between gap-6 border-b border-line py-3">
                   <dt className="text-sm text-ink-faint">
-                    <Localized item={h} field="title" />
+                    <SheetText item={h} field="title" />
                   </dt>
                   <dd className="text-end text-sm font-medium text-ink">
-                    <Localized item={h} field="text" />
+                    <SheetText item={h} field="text" />
                   </dd>
                 </div>
               ))}
@@ -114,8 +108,8 @@ export default function About() {
                 <span aria-hidden className="text-xs tabular-nums text-wine-text">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <Localized item={area} field="title" as="h3" className="text-base font-medium text-ink" />
-                <Localized item={area} field="text" as="p" className="text-sm leading-relaxed text-ink-faint" />
+                <SheetText item={area} field="title" as="h3" className="text-base font-medium text-ink" />
+                <SheetText item={area} field="text" as="p" className="text-sm leading-relaxed text-ink-faint" />
               </li>
             ))}
           </ol>
@@ -129,18 +123,18 @@ export default function About() {
           <ol>
             {background.map((entry) => (
               <li key={entry.id} className="grid gap-1 border-b border-line py-4 first:pt-0 md:grid-cols-12 md:gap-8">
-                <Localized item={entry} field="period" as="p" className="label pt-1 md:col-span-3" />
+                <SheetText item={entry} field="period" as="p" className="label pt-1 md:col-span-3" />
                 <div className="min-w-0 md:col-span-9">
                   <p className="text-ink">
-                    <Localized item={entry} field="name" className="font-medium" />
+                    <SheetText item={entry} field="name" className="font-medium" />
                     {entry.role && (
                       <>
                         <span className="mx-2 text-ink-faint">·</span>
-                        <Localized item={entry} field="role" className="text-ink-soft" />
+                        <SheetText item={entry} field="role" className="text-ink-soft" />
                       </>
                     )}
                   </p>
-                  <Localized item={entry} field="notes" as="p" className="mt-1 text-sm text-ink-faint" />
+                  <SheetText item={entry} field="notes" as="p" className="mt-1 text-sm text-ink-faint" />
                 </div>
               </li>
             ))}

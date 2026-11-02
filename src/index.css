@@ -56,17 +56,6 @@
   h3 {
     text-wrap: balance;
   }
-
-  /* Arabic letters must join: tracking would break them apart */
-  :lang(ar) {
-    letter-spacing: 0 !important;
-  }
-
-  /* Arabic script needs a little more line height than Latin */
-  :lang(ar) p,
-  :lang(ar) li {
-    line-height: 1.9;
-  }
 }
 
 @layer components {
@@ -75,18 +64,10 @@
     @apply text-[11px] font-medium uppercase tracking-[0.22em] text-ink-faint;
   }
 
-  :lang(ar) .label {
-    @apply text-xs;
-  }
-
   /* Decorative script word, used sparingly */
   .script {
     @apply font-script font-normal normal-case tracking-normal;
     line-height: 1;
-  }
-
-  :lang(ar) .script {
-    line-height: 1.6;
   }
 }
 

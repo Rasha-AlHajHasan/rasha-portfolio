@@ -12,40 +12,15 @@ All eight tabs are connected:
 | **Experience** | Experience page, Home "Experience" summary |
 | **About** | About headline, "At a glance", "Areas of expertise", Home focus list, footer badges |
 | **Skills** | Skills page (grouped), Home "Skills" summary |
-| **Contact** | Contact page, Home contact band (email) |
+| **Contact** | Contact page, Home contact section |
 | **Stats** | Home "At a glance" strip (hidden while empty) |
 | **Background** | About "Education & background" |
 
 Page titles, button labels, the navigation menu and other UI text are fixed in the code, in
-`src/i18n/en.js` and `src/i18n/ar.js`, not sheet content.
+`src/content/text.js`, not sheet content.
 
 Each tab has a bundled copy in `src/content/fallback/`. A tab without a configured URL, or
 whose sheet can't be reached, shows that copy.
-
-## English and Arabic content
-
-The site has an EN / AR switcher. UI text is translated in the code; **sheet content is
-English unless you add Arabic columns**:
-
-- Any text column can have an Arabic twin named **`<column>_ar`** — e.g. `title_ar`,
-  `summary_ar`, `bullets_ar`, `text_ar`, `notes_ar`. In Profile (two-column tab) add rows
-  such as `name_ar`, `role_ar`, `tagline_ar`, `bio_ar`.
-- `<column>_en` is accepted as another name for the English column (`title_en` = `title`),
-  so either naming style works. Existing columns don't need to change.
-- **Fallback:** in Arabic, a blank `_ar` cell shows the English text (marked as English for
-  screen readers and shown left-to-right). Nothing is machine-translated and no section goes empty.
-- Technology names, emails, phone numbers and URLs are never translated.
-
-| Tab | Columns that accept `_ar` |
-|---|---|
-| Profile | `name`, `role`, `tagline`, `bio` |
-| Projects | `title`, `summary` |
-| Experience | `title`, `company`, `period`, `bullets` |
-| About | `title`, `text` (a headline row's `text_ar` becomes the Arabic headline) |
-| Skills | `name`, `category` |
-| Contact | `label` (known types already have Arabic labels) |
-| Stats | `title`, `description` |
-| Background | `name`, `role`, `period`, `notes` |
 
 ## Optional columns used by the redesign
 
@@ -54,7 +29,7 @@ English unless you add Arabic columns**:
   title → `website`; otherwise `web`.
 - **Skills → `category`**: groups skills on the Skills page. Use `backend`, `mobile`,
   `frontend`, `databases`, `erp` or `tools` for the built-in (translated) group names, or any
-  other text for a custom group (with `category_ar` for its Arabic name). Blank → grouped
+  other text for a custom group. Blank → grouped
   automatically by recognisable names (e.g. Flutter → mobile, SQL Server → databases);
   anything unrecognised goes under "Other skills".
 
@@ -71,7 +46,7 @@ gid and the site's published URL for it stops working.
    *Separator type:* **Comma**.
 4. **Uncheck "Convert text to numbers, dates, and formulas"**. Otherwise `+961 3 676 425` is read
    as a formula and shows `#ERROR!`. (Typing by hand instead? Start the phone cell with `'`.)
-5. **Import data**. Check that Arabic text and line breaks inside cells came through.
+5. **Import data**. Check that line breaks inside cells came through.
 6. Nothing else to do: the tab stays published and "Automatically republish" picks up the change.
    Open the site with `?refresh` to see it immediately.
 
@@ -120,8 +95,7 @@ One row per item; the `section` column says where it appears.
 
 ### Skills tab
 
-`name` (**required**), `category` (see "Optional columns" above), `display_order`, `is_active`,
-`name_ar` (only for descriptive skills — technology names stay in English).
+`name` (**required**), `category` (see "Optional columns" above), `display_order`, `is_active`.
 
 ### Contact tab
 
@@ -129,7 +103,7 @@ One row per item; the `section` column says where it appears.
 |---|---|
 | `type` | **Required.** `email`, `phone`, `whatsapp`, `linkedin`, `github` or `location`. |
 | `label` | Text above the value (defaults to the type). |
-| `value` | For `email`/`phone`: the address/number. For `location`: the place (plain text, not a link; `value_ar` for Arabic). For links: optional display text (defaults to the link without `https://`). |
+| `value` | For `email`/`phone`: the address/number. For `location`: the place (plain text, not a link). For links: optional display text (defaults to the link without `https://`). |
 | `url` | For `whatsapp`/`linkedin`/`github`: the full `https://…` link, e.g. `https://wa.me/9611234567`. |
 
 The Contact page shows only channels with a usable address or link — blank rows are hidden.

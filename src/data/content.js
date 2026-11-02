@@ -1,9 +1,7 @@
 // src/data/content.js
 // Centralized read-only content layer backed by Google Sheets published CSVs.
 //
-// Bilingual columns: any text column can have an Arabic twin named `<column>_ar`
-// (e.g. title_ar, summary_ar). `<column>_en` is accepted as an alias for the
-// English column. Blank Arabic cells fall back to English in the UI.
+// `<column>_en` is accepted as an alias for a column's plain name.
 //
 // Load order per tab:
 //   1. fresh browser cache (localStorage, within CACHE_SECONDS)
@@ -277,11 +275,6 @@ function byDisplayOrder(items) {
     .map(({ item }) => item);
 }
 
-// Arabic twin of a text column (blank when the sheet doesn't have it)
-function arabic(row, column) {
-  return row[`${column}_ar`] || "";
-}
-
 // Rows must have the required column, otherwise the tab is treated as invalid
 function hasColumns(rows, ...required) {
   return required.every((name) => rows.fields?.includes(name));
@@ -326,14 +319,10 @@ function validateProfile(rows) {
     tagline: record.tagline || "",
     bio: record.bio || "",
     image_url: toUrl(record.image_url) || DEFAULT_PROFILE_IMAGE,
-    name_ar: arabic(record, "name"),
-    role_ar: arabic(record, "role"),
-    tagline_ar: arabic(record, "tagline"),
-    bio_ar: arabic(record, "bio"),
   };
 }
 
-// { name, role, tagline, bio, image_url, *_ar } — bio paragraphs are separated by line breaks
+// { name, role, tagline, bio, image_url } — bio paragraphs are separated by line breaks
 export async function getProfile() {
   const { data } = await loadRows("profile", validateProfile);
   return data;
@@ -365,8 +354,6 @@ function validateProjects(rows) {
     return {
       title: row.title,
       summary: row.summary || "",
-      title_ar: arabic(row, "title"),
-      summary_ar: arabic(row, "summary"),
       stack,
       platform: toPlatform(row.platform, row.title, stack),
       cover_url: toUrl(row.cover_url),
@@ -401,10 +388,6 @@ function validateExperience(rows) {
     period: row.period || "",
     bullets: toList(row.bullets),
     tech: toList(row.technologies, { commas: true }),
-    title_ar: arabic(row, "title"),
-    company_ar: arabic(row, "company"),
-    period_ar: arabic(row, "period"),
-    bullets_ar: toList(arabic(row, "bullets")),
   }));
 }
 
@@ -428,8 +411,6 @@ function validateAbout(rows) {
     title: row.title || "",
     text: row.text || "",
     icon: row.icon || "",
-    title_ar: arabic(row, "title"),
-    text_ar: arabic(row, "text"),
   }));
   if (items == null) return null;
 
@@ -441,14 +422,13 @@ function validateAbout(rows) {
 
   return {
     headline: headline?.text || "",
-    headline_ar: headline?.text_ar || "",
     highlights: pick("highlight", "title", "text"),
     focus: pick("focus", "title"),
     badges: pick("badge", "title"),
   };
 }
 
-// { headline, headline_ar, highlights[], focus[], badges[] }
+// { headline, highlights[], focus[], badges[] }
 export async function getAbout() {
   const { data } = await loadRows("about", validateAbout);
   return data;
@@ -457,14 +437,12 @@ export async function getAbout() {
 // ==========================
 // SKILLS
 // ==========================
-// Optional columns: name_ar, category (+ category_ar). Without a category, a skill is
+// Optional column: category. Without a category, a skill is
 // grouped by recognizable keywords; anything unrecognized goes to "other".
 function validateSkills(rows) {
   return toItems(rows, "name", (row) => ({
     name: row.name,
-    name_ar: arabic(row, "name"),
     category: row.category || "",
-    category_ar: arabic(row, "category"),
   }));
 }
 
@@ -474,7 +452,7 @@ export async function getSkills() {
   return data.map((skill) => skill.name);
 }
 
-// Display order of the built-in groups (labels live in the UI translation files).
+// Display order of the built-in groups (labels live in src/content/text.js).
 // Matching runs in SKILL_RULES order, so e.g. "SQL Server" lands in databases, not backend.
 export const SKILL_GROUPS = ["backend", "mobile", "frontend", "databases", "erp", "tools", "other"];
 
@@ -495,7 +473,7 @@ function skillGroupKey(skill) {
   return SKILL_RULES.find(([, pattern]) => pattern.test(name))?.[0] || "other";
 }
 
-// [{ key, label, label_ar, skills: [{ id, name, name_ar }] }]
+// [{ key, label, skills: [{ id, name }] }]
 // Built-in groups have an empty label (the UI translates `key`); sheet categories keep their text.
 export async function getSkillGroups() {
   const { data } = await loadRows("skills", validateSkills);
@@ -508,11 +486,10 @@ export async function getSkillGroups() {
       groups.set(key, {
         key,
         label: custom ? skill.category : "",
-        label_ar: custom ? skill.category_ar : "",
         skills: [],
       });
     }
-    groups.get(key).skills.push({ id: skill.id, name: skill.name, name_ar: skill.name_ar });
+    groups.get(key).skills.push({ id: skill.id, name: skill.name });
   }
 
   // Sheet categories sit just before "other"
@@ -527,7 +504,7 @@ export async function getSkillGroups() {
 // CONTACT
 // ==========================
 // type: email | phone | whatsapp | linkedin | github | location (others show as plain links)
-// Email and phone links are built from `value`; `location` is plain text (value + value_ar);
+// Email and phone links are built from `value`; `location` is plain text;
 // every other type links to `url`.
 function contactHref(type, value, url) {
   if (type === "location") return "";
@@ -544,10 +521,8 @@ function validateContact(rows) {
     return {
       type,
       label: row.label || row.type,
-      label_ar: arabic(row, "label"),
       // Blank value -> show the link without "https://www."
       value: row.value || href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""),
-      value_ar: arabic(row, "value"),
       href,
     };
   });
@@ -572,8 +547,6 @@ function validateStats(rows) {
     value: row.value || "",
     description: row.description || "",
     icon: row.icon || "",
-    title_ar: arabic(row, "title"),
-    description_ar: arabic(row, "description"),
   }));
 }
 
@@ -592,10 +565,6 @@ function validateBackground(rows) {
     role: row.role || "",
     period: row.period || "",
     notes: row.notes || "",
-    name_ar: arabic(row, "name"),
-    role_ar: arabic(row, "role"),
-    period_ar: arabic(row, "period"),
-    notes_ar: arabic(row, "notes"),
   }));
 }
 

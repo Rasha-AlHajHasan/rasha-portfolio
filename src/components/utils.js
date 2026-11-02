@@ -5,8 +5,6 @@ export const cx = (...classes) => classes.filter(Boolean).join(" ");
 // Shared easing curve for Framer Motion transitions
 export const EASE = [0.2, 0.7, 0.2, 1];
 
-// Mirrors arrows and chevrons in the Arabic (RTL) layout
-export const FLIP_RTL = "rtl:-scale-x-100";
 
 // Accepts an array or a comma-separated string
 export function toList(value) {

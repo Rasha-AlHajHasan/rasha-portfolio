@@ -1,13 +1,11 @@
 // src/components/AppShell.jsx
 import React from "react";
 
-import { useI18n } from "../i18n/context";
+import { t } from "../content/text";
 import TopBar from "./TopBar";
 import SiteFooter from "./SiteFooter";
 
 export default function AppShell({ children }) {
-  const { t } = useI18n();
-
   return (
     <div className="flex min-h-screen flex-col bg-canvas text-ink">
       <a

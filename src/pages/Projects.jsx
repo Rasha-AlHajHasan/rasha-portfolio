@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { getProjects } from "../data/content";
-import { useI18n } from "../i18n/context";
+import { t } from "../content/text";
 import { EmptyState, LoadingBlock, PageHeader } from "../components/ui";
 import { cx, EASE, toList } from "../components/utils";
 import ProjectCard from "../components/ProjectCard";
@@ -12,8 +12,6 @@ import ProjectCard from "../components/ProjectCard";
 const ALL = "__all__";
 
 function FilterBar({ options, active, onChange }) {
-  const { t } = useI18n();
-
   return (
     <div role="group" aria-label={t("projects.filter")} className="flex flex-wrap gap-2">
       {options.map((option) => {
@@ -25,7 +23,6 @@ function FilterBar({ options, active, onChange }) {
             type="button"
             aria-pressed={selected}
             onClick={() => onChange(option)}
-            dir={option === ALL ? undefined : "ltr"}
             className={cx(
               "min-h-9 rounded-full border px-3.5 text-xs font-medium transition-colors duration-300",
               selected
@@ -42,7 +39,6 @@ function FilterBar({ options, active, onChange }) {
 }
 
 export default function Projects() {
-  const { t } = useI18n();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);

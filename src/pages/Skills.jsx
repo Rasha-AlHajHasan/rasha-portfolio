@@ -3,11 +3,10 @@
 import React, { useEffect, useState } from "react";
 
 import { getSkillGroups } from "../data/content";
-import { useI18n } from "../i18n/context";
-import { EmptyState, LoadingBlock, Localized, PageHeader, Reveal } from "../components/ui";
+import { t } from "../content/text";
+import { EmptyState, LoadingBlock, SheetText, PageHeader, Reveal } from "../components/ui";
 
 export default function Skills() {
-  const { t } = useI18n();
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,14 +41,14 @@ export default function Skills() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h2 id={`skills-${i}`} className="text-base font-medium text-ink">
-                  {group.label ? <Localized item={group} field="label" /> : t(`skills.groups.${group.key}`)}
+                  {group.label ? <SheetText item={group} field="label" /> : t(`skills.groups.${group.key}`)}
                 </h2>
               </div>
 
               <ul className="flex flex-wrap gap-2 md:col-span-8">
                 {group.skills.map((skill) => (
                   <li key={skill.id} className="rounded-full border border-line px-3 py-1 text-sm text-ink">
-                    <Localized item={skill} field="name" />
+                    <SheetText item={skill} field="name" />
                   </li>
                 ))}
               </ul>

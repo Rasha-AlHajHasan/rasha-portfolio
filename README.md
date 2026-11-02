@@ -1,6 +1,6 @@
 # Rasha Al Haj Hasan — Portfolio
 
-Personal portfolio built with React and Vite, in English and Arabic (RTL) with light and dark themes.
+Personal portfolio built with React and Vite, with light and dark themes.
 
 **Live site:** https://rasha-alhajhasan.github.io/rasha-portfolio/
 

@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { useI18n } from "../i18n/context";
-import { cx, EASE, FLIP_RTL, isExternal } from "./utils";
+import { t } from "../content/text";
+import { cx, EASE, isExternal } from "./utils";
 
 // --------------------------------------------------------------------------
 // Motion
@@ -32,26 +32,12 @@ export function Reveal({ children, delay = 0, className, as = "div", ...props })
 // Sheet text
 // --------------------------------------------------------------------------
 
-/**
- * Renders a sheet field in the current language (`<field>_ar` in Arabic).
- * English shown as a fallback inside the Arabic site is marked lang="en" so
- * screen readers and text direction treat it correctly.
- */
-export function Localized({ item, field, as: Component = "span", className, ...props }) {
-  const { lang, pick } = useI18n();
-  const { value, lang: valueLang } = pick(item, field);
+// Renders a sheet field; a blank cell renders nothing
+export function SheetText({ item, field, as: Component = "span", ...props }) {
+  const value = item?.[field];
   if (!value) return null;
 
-  return (
-    <Component
-      className={className}
-      lang={valueLang !== lang ? valueLang : undefined}
-      dir={valueLang !== lang ? "auto" : undefined}
-      {...props}
-    >
-      {value}
-    </Component>
-  );
+  return <Component {...props}>{value}</Component>;
 }
 
 // --------------------------------------------------------------------------
@@ -117,7 +103,6 @@ export function PageHeader({ label, title, script, intro, children }) {
 export function Tag({ children, className }) {
   return (
     <span
-      dir="ltr"
       className={cx(
         "inline-flex items-center rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-soft",
         className
@@ -131,9 +116,6 @@ export function Tag({ children, className }) {
 const buttonVariants = {
   primary: "bg-ink text-canvas hover:bg-ink/85",
   outline: "border border-ink/25 text-ink hover:border-ink hover:bg-surface",
-  // On burgundy: fixed colors so it reads the same in both themes
-  light: "bg-white text-[#141416] hover:bg-white/90",
-  "outline-light": "border border-white/40 text-white hover:border-white hover:bg-white/10",
   text: "text-ink underline decoration-line decoration-1 underline-offset-[6px] hover:decoration-wine",
 };
 
@@ -159,10 +141,7 @@ export function ButtonLink({
       {Icon && (
         <Icon
           aria-hidden
-          className={cx(
-            "h-4 w-4 shrink-0 transition-transform duration-300 ease-editorial group-hover/btn:translate-x-0.5 rtl:group-hover/btn:-translate-x-0.5",
-            (Icon === ArrowRight || Icon === ArrowUpRight) && FLIP_RTL
-          )}
+          className="h-4 w-4 shrink-0 transition-transform duration-300 ease-editorial group-hover/btn:translate-x-0.5"
         />
       )}
     </>
@@ -239,8 +218,6 @@ export function SafeImage({ src, alt = "", className, fallback = null, onFail, o
 // --------------------------------------------------------------------------
 
 export function LoadingBlock({ label, rows = 3, className }) {
-  const { t } = useI18n();
-
   return (
     <div className={cx("animate-pulse py-6", className)} role="status">
       <span className="sr-only">{label || t("common.loading")}</span>

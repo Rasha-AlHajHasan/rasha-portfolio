@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
-import I18nProvider from "./i18n/I18nProvider";
-import { useI18n } from "./i18n/context";
+import { t } from "./content/text";
 import ThemeProvider from "./theme/ThemeProvider";
 import AppShell from "./components/AppShell";
 import ScrollToTop from "./components/ScrollToTop";
@@ -25,14 +24,12 @@ const ROUTES = [
   { path: "/contact", page: "contact", element: <Contact /> },
 ];
 
-// "<Page> — <Name>" in the current language
+// "<Page> — <Name>"
 function useDocumentTitle(pathname) {
-  const { t, lang } = useI18n();
-
   useEffect(() => {
     const page = ROUTES.find((r) => r.path === pathname.replace(/(.)\/$/, "$1"))?.page || "notFound";
     document.title = `${t(`meta.pages.${page}`)} — ${t("meta.site")}`;
-  }, [pathname, lang, t]);
+  }, [pathname]);
 }
 
 function AnimatedRoutes() {
@@ -63,15 +60,13 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <ThemeProvider>
-        <I18nProvider>
-          {/* "/" in development, "/rasha-portfolio/" in the GitHub Pages build (see vite.config.js) */}
-          <BrowserRouter basename={import.meta.env.BASE_URL}>
-            <ScrollToTop />
-            <AppShell>
-              <AnimatedRoutes />
-            </AppShell>
-          </BrowserRouter>
-        </I18nProvider>
+        {/* "/" in development, "/rasha-portfolio/" in the GitHub Pages build (see vite.config.js) */}
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <ScrollToTop />
+          <AppShell>
+            <AnimatedRoutes />
+          </AppShell>
+        </BrowserRouter>
       </ThemeProvider>
     </MotionConfig>
   );

@@ -113,7 +113,6 @@ for (const tab of TABS) {
     for (const fn of GETTERS) assert.ok((await mod[fn]()) != null, fn);
     const about = await mod.getAbout();
     assert.equal(about.highlights.length, 2, "blank University placeholder skipped");
-    assert.equal(about.highlights[1].text_ar, "لبنان");
     assert.equal(about.focus.length, 3);
     assert.equal(about.headline, "");
     const contacts = await mod.getContacts();
@@ -128,7 +127,6 @@ for (const tab of TABS) {
       ],
       "WhatsApp row stays hidden (is_active FALSE)"
     );
-    assert.equal(contacts.at(-1).value_ar, "لبنان");
 
     const skills = await mod.getSkills();
     assert.equal(skills.length, 39);
@@ -145,12 +143,10 @@ for (const tab of TABS) {
     );
     for (const e of experience) {
       assert.equal(e.period, "", `${e.title}: no unverified dates`);
-      assert.equal(e.bullets.length, e.bullets_ar.length, `${e.title}: one Arabic bullet per English bullet`);
     }
 
     const profile = await mod.getProfile();
     assert.equal(profile.name, "Rasha Al Haj Hasan");
-    assert.equal(profile.bio.split("\n").length, profile.bio_ar.split("\n").length, "bio paragraphs translated");
     assert.equal((await mod.getProjects()).length, 1, "Dynasoft template row is hidden (is_active FALSE)");
   });
 
@@ -215,24 +211,16 @@ for (const tab of TABS) {
     assert.equal(profile.image_url, "/images/contact/rasha.jpeg");
   });
 
-  await check("bilingual: *_ar columns load, *_en is an alias, blank Arabic stays blank", async () => {
+  await check("*_en is an alias for a column; leftover *_ar sheet columns are ignored", async () => {
     files["/profile"] = "field,value\nname_en,Test Name\nname_ar,اسم تجريبي\ntagline,Hello\n";
     const profile = await mod.getProfile();
-    assert.equal(profile.name, "Test Name", "name_en read as name");
-    assert.equal(profile.name_ar, "اسم تجريبي");
-    assert.equal(profile.tagline_ar, "", "no Arabic -> blank, UI falls back to English");
+    assert.equal(profile.name, "Test Name");
+    assert.equal(profile.name_ar, undefined);
 
-    files["/projects"] =
-      "title_en,title_ar,summary,summary_ar,technologies\n" +
-      'Shop,متجر,"Online shop",,"React, Vite"\n';
+    files["/projects"] = "title_en,title_ar,summary,technologies\nShop,متجر,A store,React\n";
     const [p] = await mod.getProjects();
     assert.equal(p.title, "Shop");
-    assert.equal(p.title_ar, "متجر");
-    assert.equal(p.summary_ar, "");
-
-    files["/experience"] = 'title,title_ar,bullets,bullets_ar\nDev,مطوّرة,"A\nB","أ\nب"\n';
-    const [e] = await mod.getExperience();
-    assert.deepEqual(e.bullets_ar, ["أ", "ب"]);
+    assert.equal(p.title_ar, undefined);
   });
 
   await check("projects: platform column, else inferred from title/technologies", async () => {
@@ -255,7 +243,6 @@ for (const tab of TABS) {
       "every row has a built-in category, nothing in 'other'"
     );
     assert.deepEqual(groups[0].skills.slice(0, 2).map((s) => s.name), ["C#", ".NET"]);
-    assert.equal(groups[3].skills[2].name_ar, "الإجراءات المخزّنة (Stored Procedures)");
     assert.equal((await mod.getSkills()).length, 39, "getSkills still returns names");
 
     files["/skills"] = "name\n.NET\nFlutter\nDart\nREST APIs\nBusiness Analysis\n";
@@ -269,7 +256,6 @@ for (const tab of TABS) {
     const custom = await mod.getSkillGroups();
     assert.deepEqual(custom.map((g) => g.key), ["backend", "databases", "custom:design", "other"]);
     assert.equal(custom[2].label, "Design");
-    assert.equal(custom[2].label_ar, "تصميم");
   });
 
   await close();

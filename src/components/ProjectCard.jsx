@@ -4,10 +4,10 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Github, Globe, Images, Laptop, Smartphone, X } from "lucide-react";
 
-import { useI18n } from "../i18n/context";
+import { t } from "../content/text";
 import { getProjectImages } from "./projectMedia";
-import { ButtonLink, Localized, SafeImage, Tag } from "./ui";
-import { cx, FLIP_RTL, isPlaceholderHref, toList } from "./utils";
+import { ButtonLink, SheetText, SafeImage, Tag } from "./ui";
+import { cx, isPlaceholderHref, toList } from "./utils";
 
 const PLATFORM_ICONS = { web: Laptop, mobile: Smartphone, website: Globe };
 const MAX_TAGS = 4;
@@ -17,7 +17,6 @@ const MAX_TAGS = 4;
 // --------------------------------------------------------------------------
 
 export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
-  const { t, dir } = useI18n();
   const [index, setIndex] = useState(startIndex);
   const [failed, setFailed] = useState(() => new Set());
   const dialogRef = useRef(null);
@@ -27,13 +26,11 @@ export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
 
   useEffect(() => {
     const opener = document.activeElement;
-    const forward = dir === "rtl" ? "ArrowLeft" : "ArrowRight";
-    const backward = dir === "rtl" ? "ArrowRight" : "ArrowLeft";
 
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
-      if (e.key === forward) go(1);
-      if (e.key === backward) go(-1);
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
 
       // Keep Tab inside the dialog
       if (e.key === "Tab") {
@@ -59,7 +56,7 @@ export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
       window.removeEventListener("keydown", onKey);
       opener?.focus?.();
     };
-  }, [go, onClose, dir]);
+  }, [go, onClose]);
 
   const src = images[index];
 
@@ -124,7 +121,7 @@ export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
             className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#141416] transition-opacity hover:opacity-85"
             aria-label={t("viewer.prev")}
           >
-            <ChevronLeft aria-hidden className={cx("h-5 w-5", FLIP_RTL)} />
+            <ChevronLeft aria-hidden className="h-5 w-5" />
           </button>
           <button
             type="button"
@@ -132,7 +129,7 @@ export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
             className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#141416] transition-opacity hover:opacity-85"
             aria-label={t("viewer.next")}
           >
-            <ChevronRight aria-hidden className={cx("h-5 w-5", FLIP_RTL)} />
+            <ChevronRight aria-hidden className="h-5 w-5" />
           </button>
         </div>
       )}
@@ -146,7 +143,6 @@ export function GalleryViewer({ title, images, startIndex = 0, onClose }) {
 // --------------------------------------------------------------------------
 
 function NoScreens({ platform }) {
-  const { t } = useI18n();
   const Icon = PLATFORM_ICONS[platform] || Laptop;
 
   return (
@@ -158,7 +154,6 @@ function NoScreens({ platform }) {
 }
 
 function Media({ title, images, onOpen, onFail, className }) {
-  const { t } = useI18n();
   const [portrait, setPortrait] = useState(false);
   const [cover] = images;
 
@@ -192,7 +187,6 @@ function Media({ title, images, onOpen, onFail, className }) {
 }
 
 export default function ProjectCard({ project, variant = "default" }) {
-  const { t, pick } = useI18n();
   const [viewerIndex, setViewerIndex] = useState(null);
   const [failed, setFailed] = useState(() => new Set());
 
@@ -200,7 +194,7 @@ export default function ProjectCard({ project, variant = "default" }) {
   const images = getProjectImages(project).filter((src) => !failed.has(src));
   // Side-by-side feature layout only when there is a screenshot to show
   const feature = variant === "feature" && images.length > 0;
-  const title = pick(project, "title").value;
+  const { title } = project;
   const onFail = (src) => setFailed((prev) => new Set(prev).add(src));
   const closeViewer = useCallback(() => setViewerIndex(null), []);
 
@@ -240,14 +234,14 @@ export default function ProjectCard({ project, variant = "default" }) {
             )}
           </p>
 
-          <Localized
+          <SheetText
             item={project}
             field="title"
             as="h3"
             className={cx("mt-3 font-normal text-ink", feature ? "text-heading" : "text-lg leading-snug")}
           />
 
-          <Localized
+          <SheetText
             item={project}
             field="summary"
             as="p"

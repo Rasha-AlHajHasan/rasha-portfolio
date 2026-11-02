@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -21,14 +21,13 @@
     <meta name="twitter:description" content="Portfolio of Rasha Al Haj Hasan, a software developer building web applications, Flutter mobile apps and business systems." />
     <meta name="twitter:image" content="https://rasha-alhajhasan.github.io/rasha-portfolio/images/contact/rasha.jpeg" />
 
-    <!-- Apply the saved (or system) theme and language before first paint, so there is no flash -->
+    <!-- Apply the saved (or system) theme before first paint, so there is no flash -->
     <script>
       (function () {
         var root = document.documentElement;
-        var theme, lang;
+        var theme;
         try {
           theme = localStorage.getItem("pref:theme");
-          lang = localStorage.getItem("pref:lang");
         } catch (e) {}
         if (theme !== "light" && theme !== "dark") {
           theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -37,19 +36,14 @@
         if (theme === "dark") {
           document.querySelector('meta[name="theme-color"]').setAttribute("content", "#0E0E10");
         }
-        if (lang === "ar") {
-          root.lang = "ar";
-          root.dir = "rtl";
-        }
       })();
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Jost: headings + body · Allura: decorative script · IBM Plex Sans Arabic + Aref Ruqaa: Arabic pair.
-         Arabic files only download when Arabic text is on screen (unicode-range subsets). -->
+    <!-- Jost: headings + body · Allura: decorative script -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Aref+Ruqaa&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Jost:wght@300..600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Jost:wght@300..600&display=swap"
       rel="stylesheet"
     />
     <title>Rasha Al Haj Hasan — Software Developer</title>

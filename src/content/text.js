@@ -1,6 +1,6 @@
-// Static UI text — English. Keys mirror src/i18n/ar.js.
+// Static UI text.
 // Portfolio content (projects, experience, …) comes from Google Sheets, not from here.
-const en = {
+const TEXT = {
   meta: {
     site: "Rasha Al Haj Hasan",
     pages: {
@@ -30,7 +30,6 @@ const en = {
   },
 
   prefs: {
-    language: "Language",
     theme: {
       toDark: "Switch to dark theme",
       toLight: "Switch to light theme",
@@ -48,7 +47,6 @@ const en = {
   home: {
     label: "Portfolio",
     script: "selected work",
-    rolesFallback: "Software Developer",
     introFallback: "Web, mobile and business software built with care for the people who use it.",
     ctaProjects: "View projects",
     ctaContact: "Contact me",
@@ -74,10 +72,10 @@ const en = {
       more: "All skills",
     },
     contact: {
-      script: "Let’s work together",
-      text: "Open to freelance work, product roles and software collaborations.",
+      text: "Feel free to get in touch for professional inquiries.",
       cta: "Contact me",
-      email: "Send an email",
+      email: "Send an Email",
+      linkedin: "View LinkedIn",
     },
   },
 
@@ -172,26 +170,18 @@ const en = {
   },
 
   contact: {
-    label: "Contact",
-    title: "Let’s talk",
-    script: "hello",
-    intro: "Open to freelance work, product roles and software collaborations. Choose whichever channel suits you.",
+    label: "Get in touch",
+    title: "Contact",
+    script: "details",
+    intro: "Feel free to get in touch for professional inquiries.",
     loading: "Loading contact details",
     emptyTitle: "Contact details are being updated",
     emptyText: "In the meantime, you can find my work on the Projects page.",
     email: "Email",
-    sendEmail: "Send email",
+    sendEmail: "Send an Email",
     copy: "Copy email",
     copied: "Copied",
-    channels: "Other channels",
-    types: {
-      email: "Email",
-      phone: "Phone",
-      whatsapp: "WhatsApp",
-      linkedin: "LinkedIn",
-      github: "GitHub",
-      location: "Location",
-    },
+    details: "Contact details",
     open: "Open {label}",
   },
 
@@ -203,4 +193,9 @@ const en = {
   },
 };
 
-export default en;
+// t("projects.count", { n: 3 }) — unknown keys fall back to the key itself
+export function t(key, vars) {
+  const text = key.split(".").reduce((node, part) => node?.[part], TEXT) ?? key;
+  if (!vars || typeof text !== "string") return text;
+  return text.replace(/\{(\w+)\}/g, (match, name) => (name in vars ? vars[name] : match));
+}

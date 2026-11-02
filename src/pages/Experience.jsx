@@ -3,13 +3,11 @@
 import React, { useEffect, useState } from "react";
 
 import { getExperience } from "../data/content";
-import { useI18n } from "../i18n/context";
-import { EmptyState, LoadingBlock, Localized, PageHeader, Reveal, Tag } from "../components/ui";
+import { t } from "../content/text";
+import { EmptyState, LoadingBlock, SheetText, PageHeader, Reveal, Tag } from "../components/ui";
 import { toList } from "../components/utils";
 
 function ExperienceItem({ item }) {
-  const { t, lang, pick } = useI18n();
-  const bullets = pick(item, "bullets");
   const tech = toList(item.tech);
 
   return (
@@ -18,21 +16,17 @@ function ExperienceItem({ item }) {
       <div className="flex items-start gap-3 md:col-span-3 md:flex-col md:gap-1.5">
         <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full border border-wine md:hidden" />
         <div>
-          <Localized item={item} field="period" as="p" className="label text-wine-text" />
-          {item.company && <Localized item={item} field="company" as="p" className="mt-1 text-sm text-ink-soft" />}
+          <SheetText item={item} field="period" as="p" className="label text-wine-text" />
+          {item.company && <SheetText item={item} field="company" as="p" className="mt-1 text-sm text-ink-soft" />}
         </div>
       </div>
 
       <div className="min-w-0 md:col-span-9">
-        <Localized item={item} field="title" as="h2" className="text-heading font-normal text-ink" />
+        <SheetText item={item} field="title" as="h2" className="text-heading font-normal text-ink" />
 
-        {bullets.value?.length > 0 && (
-          <ul
-            className="mt-4 grid gap-2"
-            lang={bullets.lang !== lang ? bullets.lang : undefined}
-            dir={bullets.lang !== lang ? "auto" : undefined}
-          >
-            {bullets.value.map((bullet, idx) => (
+        {item.bullets?.length > 0 && (
+          <ul className="mt-4 grid gap-2">
+            {item.bullets.map((bullet, idx) => (
               <li key={idx} className="flex gap-3 text-[15px] leading-relaxed text-ink-soft">
                 <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-wine" />
                 <span>{bullet}</span>
@@ -56,7 +50,6 @@ function ExperienceItem({ item }) {
 }
 
 export default function Experience() {
-  const { t } = useI18n();
   const [experience, setExperience] = useState([]);
   const [loading, setLoading] = useState(true);
 

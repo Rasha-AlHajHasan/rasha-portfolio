@@ -24,8 +24,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Jost"', '"IBM Plex Sans Arabic"', "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
-        script: ['"Allura"', '"Aref Ruqaa"', "cursive"],
+        sans: ['"Jost"', "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        script: ['"Allura"', "cursive"],
       },
       fontSize: {
         // Fluid sizes: modest on phones, capped on desktop

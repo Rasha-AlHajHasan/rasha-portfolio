@@ -2,25 +2,18 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 
-import { getAbout, getProfile } from "../data/content";
-import { useI18n } from "../i18n/context";
+import { getAbout } from "../data/content";
+import { t } from "../content/text";
 import { NAV_LINKS } from "./navLinks";
-import { Localized } from "./ui";
+import { SheetText } from "./ui";
 
 export default function SiteFooter() {
-  const { t } = useI18n();
-  const [profile, setProfile] = useState(null);
   const [badges, setBadges] = useState([]);
 
   useEffect(() => {
-    async function loadFooter() {
-      const [profileResult, aboutResult] = await Promise.allSettled([getProfile(), getAbout()]);
-
-      if (profileResult.status === "fulfilled") setProfile(profileResult.value);
-      if (aboutResult.status === "fulfilled") setBadges(aboutResult.value.badges);
-    }
-
-    loadFooter();
+    getAbout()
+      .then((about) => setBadges(about.badges))
+      .catch((error) => console.error("About fetch failed (footer):", error));
   }, []);
 
   return (
@@ -28,7 +21,7 @@ export default function SiteFooter() {
       <div className="mx-auto grid w-full max-w-page gap-6 px-4 py-8 text-sm text-ink-faint sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
         <div className="min-w-0">
           <p className="text-ink">
-            {profile ? <Localized item={profile} field="name" /> : t("meta.site")}
+            {t("meta.site")}
             <span className="ms-3 text-xs tabular-nums text-ink-faint">© {new Date().getFullYear()}</span>
           </p>
 
@@ -37,7 +30,7 @@ export default function SiteFooter() {
               {badges.map((badge) => (
                 <li key={badge.id} className="flex items-center gap-2">
                   <span aria-hidden className="h-1 w-1 rounded-full bg-wine" />
-                  <Localized item={badge} field="title" />
+                  <SheetText item={badge} field="title" />
                 </li>
               ))}
             </ul>

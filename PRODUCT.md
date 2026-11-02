@@ -11,13 +11,12 @@ web
 Two audiences, weighted equally:
 
 - **Employers**: recruiters and hiring managers screening Rasha for developer or business-analyst roles. They arrive from a CV, LinkedIn or GitHub and need to confirm, quickly, that the experience and skills match what they read elsewhere.
-- **Direct clients**: businesses considering Rasha for freelance software, mobile app or ERP (Odoo) work. They need to see what she has built, understand the kind of problems she solves, and find a way to get in touch.
+- **Direct clients**: businesses considering Rasha for software, mobile app or ERP (Odoo) work. They need to see what she has built, understand the kind of problems she solves, and find a way to get in touch.
 
-Both read in English or Arabic; English is the primary language.
 
 ## Product Purpose
 
-The personal portfolio of Rasha Al Haj Hasan, a software developer based in Lebanon. It presents her projects, professional experience, skills and contact details, and is meant to turn a visit into a conversation: an interview, a freelance enquiry or a collaboration. Current copy states she is "open to freelance work, product roles and software collaborations."
+The personal portfolio of Rasha Al Haj Hasan, a software developer based in Lebanon. It presents her projects, professional experience, skills and contact details, and is meant to make getting in touch easy. Contact is plain contact information, not an availability or job-seeking message.
 
 Success is a visitor who leaves with an accurate picture of her work and a clear way to reach her.
 
@@ -30,7 +29,7 @@ Success is a visitor who leaves with an accurate picture of her work and a clear
 - **Pages:** Home, Projects, Experience, About, Skills, Contact (plus 404).
 - **Content management:** all portfolio content lives in a Google Sheet, "Rasha Portfolio Content Management", with eight tabs (Profile, Projects, Experience, About, Skills, Contact, Stats, Background). Each tab is published to the web as CSV; Rasha edits the sheet and the live site updates within minutes, without a rebuild or deploy.
 - **Content fallback:** each tab has a bundled copy in `src/content/fallback/`, and ready-to-import copies plus instructions in `docs/sheets/`.
-- **Languages:** EN / AR switcher. UI text is translated in code (`src/i18n/`); sheet content is English, with optional `<column>_ar` Arabic columns. Blank Arabic cells fall back to English, marked as English for screen readers. Arabic uses a full RTL layout.
+- **Language:** English only. UI text lives in `src/content/text.js`.
 - **Themes:** light and dark, following the system setting until the visitor chooses one.
 - **Hosting:** GitHub Pages at `/rasha-portfolio/`, built by a GitHub Actions workflow that reads the sheet URLs from repository variables.
 
@@ -40,7 +39,7 @@ Success is a visitor who leaves with an accurate picture of her work and a clear
 - **No backend:** no database, Supabase or custom server; Google Sheets is the only content source. Do not add complexity beyond that.
 - **Sheet tabs are permanent:** never delete or re-create a tab. Its `gid` is part of the published CSV URL, and a new tab breaks the site's link to it.
 - **Caching:** each visitor's browser keeps sheet data for 5 minutes; opening any page with `?refresh` bypasses it.
-- **Content can be sparse or partial:** rows can be hidden (`is_active`), cells can be blank (e.g. no employment dates yet), Arabic may be missing. Every page must still read well with whatever the sheet holds, and hide empty placeholders rather than show them.
+- **Content can be sparse or partial:** rows can be hidden (`is_active`), cells can be blank (e.g. no employment dates yet). Every page must still read well with whatever the sheet holds, and hide empty placeholders rather than show them.
 - **Terminology:** "tab" = a sheet tab; "fallback" = the bundled CSV copy; `display_order` and `is_active` are the shared ordering and visibility columns.
 - **Undecided:**
   - employment dates for all roles (not yet verified);
@@ -53,7 +52,6 @@ Success is a visitor who leaves with an accurate picture of her work and a clear
 - **Name:** Rasha Al Haj Hasan (this spelling; matches GitHub and LinkedIn).
 - **Role line:** "Software Developer & ERP Professional"; tagline "Bridging business needs and technology through practical, user-focused software solutions."
 - **Voice:** concise, professional, plain. Real experience described accurately; no exaggerated claims, inflated metrics, skill percentages or seniority levels. Content should stay consistent with her CV for applicant-tracking systems (ATS).
-- **Technical names stay in English** in both languages (C#, ASP.NET Core, Flutter, Odoo…); professional Arabic translations elsewhere.
 
 ## Evidence on Hand
 
@@ -77,4 +75,3 @@ Success is a visitor who leaves with an accurate picture of her work and a clear
 2. **Developer first, business-fluent second.** Lead with what she builds; let the ERP and analysis experience explain why her software fits real operations.
 3. **Serve the screener and the client at once.** An employer should verify roles and skills in seconds; a client should see real work and an obvious way to make contact.
 4. **The sheet is the source of truth.** Design for content that changes, grows or goes missing, without code changes or redeploys.
-5. **Two languages, one experience.** Arabic is not an afterthought: layouts must work fully right-to-left, and missing translations degrade gracefully to English.

@@ -1,8 +1,8 @@
-id,section,title,text,icon,display_order,is_active,title_ar,text_ar
-1,headline,,,,1,TRUE,,
-2,highlight,University,,GraduationCap,2,TRUE,الجامعة,
-3,highlight,Current role,Software Developer & ERP Professional,Briefcase,3,TRUE,الدور الحالي,مطوّرة برمجيات ومتخصصة في أنظمة ERP
-4,highlight,Based in,Lebanon,MapPin,4,TRUE,مكان الإقامة,لبنان
-5,focus,Web Development,"Responsive, accessible interfaces with clean, maintainable front-end code.",,5,TRUE,,
-6,focus,Mobile Apps,Cross-platform apps that feel natural on every screen size.,,6,TRUE,,
-7,focus,Business Systems,"Practical tools that turn everyday workflows into clear, usable software.",,7,TRUE,,
+id,section,title,text,icon,display_order,is_active
+1,headline,,,,1,TRUE
+2,highlight,University,,GraduationCap,2,TRUE
+3,highlight,Current role,Software Developer & ERP Professional,Briefcase,3,TRUE
+4,highlight,Based in,Lebanon,MapPin,4,TRUE
+5,focus,Web Development,"Responsive, accessible interfaces with clean, maintainable front-end code.",,5,TRUE
+6,focus,Mobile Apps,Cross-platform apps that feel natural on every screen size.,,6,TRUE
+7,focus,Business Systems,"Practical tools that turn everyday workflows into clear, usable software.",,7,TRUE
