@@ -284,21 +284,24 @@ Refined and restrained: pill shapes, quiet hover changes, and an arrow that nudg
 - **Set:** Lucide outline icons at 16px (14px in dense rows, 20px in the gallery), with a 2px stroke, in `currentColor`. Decorative icons are `aria-hidden`; icon-only buttons have a text label.
 
 ### Device Showcase (signature)
-The Home hero's stage: three scenes (a Flutter phone, a laptop showing C#/.NET code, a browser window resizing) that cross-fade every 6.4 seconds. The technology is shown only inside the screens: code is typed character by character (Dart on the phone, C# in the laptop's editor, a request line in the browser), with a blinking caret marking the typing. Nothing floats outside the devices. Bezels and the editor stay dark in both themes. This is the journal's "working page" and the one place on the site where motion is the content.
+The Home hero's stage: one phone. Code is typed character by character on its screen (Dart, then C#/.NET, swapping every 6.4 seconds), with a blinking caret, and then the running app says "Hello, world!". The technology is shown only inside the screen; nothing floats outside the device. The bezel and code pane stay dark in both themes. This is the journal's "working page" and the one place on the site where motion is the content.
 
 - **Semantics:** the stage is `aria-hidden`; a single static sentence in a visually hidden `figcaption` describes it once. It is decorative, so its tiny interface text does not need to meet text-size or contrast minimums, but it must never hide or overlap real content.
-- **Sizing:** a 4:3 stage, full column width up to 34rem (544px), centred; everything inside scales with the stage width (container query units). The laptop's code is 7–14px; the phone's is 2.1% of the stage width.
+- **Sizing:** a 4:3 stage, full column width up to 34rem (544px), centred; everything inside scales with the stage width (container query units). The phone's code is 1.9% of the stage width.
 
-| Viewport | Stage | Laptop code | Notes |
-|---|---|---|---|
-| 320px | 288 × 216px | ~8px | Verified: no horizontal scroll, phone 90% of stage height. |
-| 390px | 358 × 269px | ~10px | Verified. |
-| 768px | 544 × 408px (capped) | 14px | Centred under the text. |
-| 1024px+ | 6/11 of the hero row, max 544px wide | 14px | Beside the text, vertically centred. |
+| Viewport | Stage | Notes |
+|---|---|---|
+| 320px | 288 × 216px | Verified: no horizontal scroll, phone 90% of stage height. |
+| 390px | 358 × 269px | Verified. |
+| 768px | 544 × 408px (capped) | Centred under the text. |
+| 1024px+ | 6/11 of the hero row, max 544px wide | Beside the text, vertically centred. |
 
 - **Rules at every size:** the stage never exceeds the column, and text that isn't typed yet already holds its space. No scene reflows the page; transitions change opacity, a 10px rise and 1–1.5% scale only. The stage pauses while off screen or when the tab is hidden.
-- **Reduced motion:** scenes only cross-fade, every 8 seconds, with no typing or resizing (the code is simply shown in full), and the caret stops blinking.
-- **Pause control:** the showcase changes scenes on its own indefinitely, and WCAG 2.2.2 (Pause, Stop, Hide) requires a way to pause automatic movement that lasts more than 5 seconds. **Pending (proposed):** add a small pause/play pill (36px, Paper White, hairline border, Bordeaux Text focus ring) at the stage's bottom end corner, labelled "Pause animation" / "Play animation". Under reduced motion it starts paused on the first scene. This replaces the original "no controls" choice; confirm before implementing.
+- **Reduced motion:** snippets only cross-fade, every 8 seconds, with no typing (the code is simply shown in full), and the caret stops blinking.
+- **Pause control:** the showcase changes snippets on its own indefinitely, and WCAG 2.2.2 (Pause, Stop, Hide) requires a way to pause automatic movement that lasts more than 5 seconds. **Pending (proposed):** add a small pause/play pill (36px, Paper White, hairline border, Bordeaux Text focus ring) at the stage's bottom end corner, labelled "Pause animation" / "Play animation". Under reduced motion it starts paused on the first scene. This replaces the original "no controls" choice; confirm before implementing.
+
+### Splash screen
+A laptop opens once per browser session: the lid lifts from flat over 1.5 seconds, the screen lights with a faint Bordeaux glow, the name is typed, and the page fades in at 3.5 seconds, when the hero starts typing. A click or key press skips it. It is never shown with reduced motion. It is `aria-hidden`, and the page underneath is already loaded.
 
 ### Contact details
 Home's closing section and the Contact page share one list of rows filled from the Contact sheet tab: a round icon, a small label and the value, separated by hairlines. Rows that link somewhere carry a ↗ arrow; Location is plain text. Beside the list, Home has one sentence and a pair of pill buttons ("Send an Email", "View LinkedIn"). The wording stays direct and professional, never an availability or job-seeking message.

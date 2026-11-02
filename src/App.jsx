@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
@@ -6,6 +6,8 @@ import { t } from "./content/text";
 import ThemeProvider from "./theme/ThemeProvider";
 import AppShell from "./components/AppShell";
 import ScrollToTop from "./components/ScrollToTop";
+import { shouldShowSplash, SplashContext } from "./components/splash";
+import SplashScreen from "./components/SplashScreen";
 
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -57,16 +59,22 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const [splashDone, setSplashDone] = useState(() => !shouldShowSplash());
+  const finishSplash = useCallback(() => setSplashDone(true), []);
+
   return (
     <MotionConfig reducedMotion="user">
       <ThemeProvider>
-        {/* "/" in development, "/rasha-portfolio/" in the GitHub Pages build (see vite.config.js) */}
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
-          <ScrollToTop />
-          <AppShell>
-            <AnimatedRoutes />
-          </AppShell>
-        </BrowserRouter>
+        <SplashContext.Provider value={splashDone}>
+          {/* "/" in development, "/rasha-portfolio/" in the GitHub Pages build (see vite.config.js) */}
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <ScrollToTop />
+            <AppShell>
+              <AnimatedRoutes />
+            </AppShell>
+          </BrowserRouter>
+          <AnimatePresence>{!splashDone && <SplashScreen key="splash" onDone={finishSplash} />}</AnimatePresence>
+        </SplashContext.Provider>
       </ThemeProvider>
     </MotionConfig>
   );
