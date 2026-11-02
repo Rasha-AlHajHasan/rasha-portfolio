@@ -44,18 +44,13 @@ export function SheetText({ item, field, as: Component = "span", ...props }) {
 // Typography
 // --------------------------------------------------------------------------
 
-// Small tracked label with a burgundy rule
+// Small tracked label
 export function Label({ children, className, as: Component = "p" }) {
-  return (
-    <Component className={cx("label flex items-center gap-3", className)}>
-      <span aria-hidden className="h-px w-6 shrink-0 bg-wine" />
-      {children}
-    </Component>
-  );
+  return <Component className={cx("label", className)}>{children}</Component>;
 }
 
 /**
- * The reference's section header: "01  INTRODUCTION ——————————  View all →"
+ * The reference's section header: "01  INTRODUCTION            View all →"
  */
 export function SectionRule({ index, title, action, as: Component = "h2", id, className }) {
   return (
@@ -65,7 +60,7 @@ export function SectionRule({ index, title, action, as: Component = "h2", id, cl
       <Component id={id} className="label min-w-0 text-ink">
         {title}
       </Component>
-      <span aria-hidden className="h-px min-w-4 flex-1 bg-line" />
+      <span aria-hidden className="min-w-4 flex-1" />
       {action}
     </div>
   );
@@ -73,7 +68,7 @@ export function SectionRule({ index, title, action, as: Component = "h2", id, cl
 
 export function PageHeader({ label, title, script, intro, children }) {
   return (
-    <header className="grid gap-5 border-b border-line pb-8 md:pb-10">
+    <header className="grid gap-5">
       {label && <Label>{label}</Label>}
 
       <motion.h1
@@ -116,7 +111,7 @@ export function Tag({ children, className }) {
 const buttonVariants = {
   primary: "bg-ink text-canvas hover:bg-ink/85",
   outline: "border border-ink/25 text-ink hover:border-ink hover:bg-surface",
-  text: "text-ink underline decoration-line decoration-1 underline-offset-[6px] hover:decoration-wine",
+  text: "text-ink decoration-wine decoration-1 underline-offset-[6px] hover:underline",
 };
 
 export function ButtonLink({
@@ -233,7 +228,7 @@ export function LoadingBlock({ label, rows = 3, className }) {
 
 export function EmptyState({ title, children, className }) {
   return (
-    <div className={cx("border-y border-line py-10 text-center", className)}>
+    <div className={cx("py-10 text-center", className)}>
       <p className="text-heading font-light text-ink">{title}</p>
       {children && <p className="mx-auto mt-2 max-w-md text-sm text-ink-faint">{children}</p>}
     </div>

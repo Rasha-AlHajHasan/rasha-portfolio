@@ -122,7 +122,7 @@ export default function TopBar() {
           >
             <ul className="mx-auto grid w-full max-w-page px-4 py-3 sm:px-6">
               {NAV_LINKS.map((link, i) => (
-                <li key={link.id} className="border-b border-line last:border-b-0">
+                <li key={link.id}>
                   <NavLink
                     to={link.path}
                     end={link.path === "/"}

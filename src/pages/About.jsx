@@ -68,7 +68,7 @@ export default function About() {
           {!about?.headline && profile?.tagline && (
             <SheetText item={profile} field="tagline" as="p" className="mb-5 text-heading font-light text-ink" />
           )}
-          <div className="grid gap-4 border-s border-wine ps-5">
+          <div className="grid gap-4">
             {paragraphs.map((p, i) => (
               <p key={i} className="text-lead text-ink-soft">
                 {p}
@@ -82,9 +82,9 @@ export default function About() {
             <p id="about-glance" className="label">
               {t("about.glance")}
             </p>
-            <dl className="mt-3 border-t border-line">
+            <dl className="mt-4 grid gap-4">
               {highlights.map((h) => (
-                <div key={h.id} className="flex items-baseline justify-between gap-6 border-b border-line py-3">
+                <div key={h.id} className="flex items-baseline justify-between gap-6">
                   <dt className="text-sm text-ink-faint">
                     <SheetText item={h} field="title" />
                   </dt>
@@ -102,9 +102,9 @@ export default function About() {
       {focus.length > 0 && (
         <Reveal as="section" aria-labelledby="about-expertise" className="grid gap-6">
           <SectionRule index="01" id="about-expertise" title={t("about.expertise")} />
-          <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-3">
+          <ol className="grid gap-8 sm:grid-cols-3">
             {focus.map((area, i) => (
-              <li key={area.id} className="grid content-start gap-2 bg-canvas p-5">
+              <li key={area.id} className="grid content-start gap-2">
                 <span aria-hidden className="text-xs tabular-nums text-wine-text">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -120,9 +120,9 @@ export default function About() {
       {background.length > 0 && (
         <Reveal as="section" aria-labelledby="about-background" className="grid gap-6">
           <SectionRule index={focus.length > 0 ? "02" : "01"} id="about-background" title={t("about.background")} />
-          <ol>
+          <ol className="grid gap-6">
             {background.map((entry) => (
-              <li key={entry.id} className="grid gap-1 border-b border-line py-4 first:pt-0 md:grid-cols-12 md:gap-8">
+              <li key={entry.id} className="grid gap-1 md:grid-cols-12 md:gap-8">
                 <SheetText item={entry} field="period" as="p" className="label pt-1 md:col-span-3" />
                 <div className="min-w-0 md:col-span-9">
                   <p className="text-ink">
@@ -143,7 +143,7 @@ export default function About() {
       )}
 
       {/* Continue */}
-      <nav aria-label={t("about.next")} className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-6">
+      <nav aria-label={t("about.next")} className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <span className="label">{t("about.next")}</span>
         <ButtonLink to="/skills" variant="text">
           {t("about.toSkills")}

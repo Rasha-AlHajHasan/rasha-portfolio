@@ -23,7 +23,7 @@ function ChannelRow({ contact }) {
       target={isExternal(contact.href) ? "_blank" : undefined}
       rel={isExternal(contact.href) ? "noreferrer" : undefined}
       aria-label={`${t("contact.open", { label: contact.label })}: ${contact.value}`}
-      className="group flex min-h-16 items-center gap-4 border-b border-line py-3 transition-colors"
+      className="group flex min-h-16 items-center gap-4 py-3 transition-colors"
     >
       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line text-ink transition-colors group-hover:border-wine group-hover:text-wine-text">
         <Icon aria-hidden className="h-4 w-4" />
@@ -43,7 +43,7 @@ function ChannelRow({ contact }) {
 // Same row as ChannelRow, but plain text: a location has nothing to open
 function LocationRow({ contact }) {
   return (
-    <div className="flex min-h-16 items-center gap-4 border-b border-line py-3">
+    <div className="flex min-h-16 items-center gap-4 py-3">
       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line text-ink">
         <MapPin aria-hidden className="h-4 w-4" />
       </span>
@@ -60,7 +60,7 @@ export default function ContactDetails({ contacts, className }) {
   if (rows.length === 0) return null;
 
   return (
-    <ul className={`border-t border-line ${className || ""}`}>
+    <ul className={className}>
       {rows.map((contact) => (
         <li key={contact.id}>
           {contact.type === "location" ? <LocationRow contact={contact} /> : <ChannelRow contact={contact} />}

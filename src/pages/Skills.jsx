@@ -34,7 +34,7 @@ export default function Skills() {
               key={group.key}
               as="section"
               aria-labelledby={`skills-${i}`}
-              className="grid gap-4 border-b border-line py-7 md:grid-cols-12 md:gap-8"
+              className="grid gap-4 py-7 md:grid-cols-12 md:gap-8"
             >
               <div className="flex items-baseline gap-3 md:col-span-4">
                 <span aria-hidden className="text-xs tabular-nums text-wine-text">

@@ -11,7 +11,7 @@ function ExperienceItem({ item }) {
   const tech = toList(item.tech);
 
   return (
-    <Reveal as="li" className="grid gap-3 border-b border-line py-7 md:grid-cols-12 md:gap-8 md:py-9">
+    <Reveal as="li" className="grid gap-3 border-b border-line py-7 last:border-b-0 md:grid-cols-12 md:gap-8 md:py-9">
       {/* Period + company: the reference's narrow left column */}
       <div className="flex items-start gap-3 md:col-span-3 md:flex-col md:gap-1.5">
         <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full border border-wine md:hidden" />
@@ -29,7 +29,7 @@ function ExperienceItem({ item }) {
           <ul className="mt-4 grid gap-2">
             {item.bullets.map((bullet, idx) => (
               <li key={idx} className="flex gap-3 text-[15px] leading-relaxed text-ink-soft">
-                <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-wine" />
+                <span aria-hidden className="mt-[0.65em] h-1 w-1 shrink-0 rounded-full bg-wine" />
                 <span>{bullet}</span>
               </li>
             ))}

@@ -146,7 +146,7 @@ function NoScreens({ platform }) {
   const Icon = PLATFORM_ICONS[platform] || Laptop;
 
   return (
-    <div className="flex h-20 items-center gap-3 border-b border-line bg-sunken px-5">
+    <div className="flex h-20 items-center gap-3 bg-sunken px-5">
       <Icon aria-hidden className="h-4 w-4 text-wine-text" />
       <span className="text-xs text-ink-faint">{t("projects.noScreens")}</span>
     </div>
@@ -162,7 +162,7 @@ function Media({ title, images, onOpen, onFail, className }) {
       type="button"
       onClick={() => onOpen(0)}
       aria-label={t("projects.openScreens", { title })}
-      className={cx("relative block w-full overflow-hidden border-b border-line bg-sunken", className)}
+      className={cx("relative block w-full overflow-hidden bg-sunken", className)}
     >
       <SafeImage
         src={cover}

@@ -73,9 +73,9 @@ function Hero({ profile }) {
 function Stats({ stats }) {
   return (
     <section aria-label={t("home.stats")}>
-      <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-4">
+      <dl className="grid grid-cols-2 gap-5 sm:grid-cols-4">
         {stats.map((stat) => (
-          <div key={stat.id} className="flex flex-col-reverse gap-1 bg-canvas p-4 sm:p-5">
+          <div key={stat.id} className="flex flex-col-reverse gap-1">
             <dt className="label">
               <SheetText item={stat} field="title" />
             </dt>
@@ -201,9 +201,9 @@ export default function Home() {
               />
             )}
             {focus.length > 0 && (
-              <dl className="grid content-start md:col-span-5">
+              <dl className="grid content-start gap-5 md:col-span-5">
                 {focus.map((area) => (
-                  <div key={area.id} className="grid gap-1 border-t border-line py-3 first:border-t-0 first:pt-0">
+                  <div key={area.id} className="grid gap-1">
                     <dt className="text-sm font-medium text-ink">
                       <SheetText item={area} field="title" />
                     </dt>
@@ -240,11 +240,11 @@ export default function Home() {
         action={more("/experience", "home.experience.more")}
       >
         {experience.length > 0 ? (
-          <ol className="grid">
+          <ol className="grid gap-5">
             {experience.slice(0, SUMMARY_ROWS).map((item) => (
               <li
                 key={item.id}
-                className="grid gap-1 border-t border-line py-4 first:border-t-0 first:pt-0 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"
+                className="grid gap-1 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"
               >
                 <SheetText item={item} field="period" as="p" className="label pt-1" />
                 {/* col-start-2: stays in the title column when the period is blank */}
@@ -267,9 +267,9 @@ export default function Home() {
 
       {sections.includes("skills") && (
         <Section index={number("skills")} id="home-skills" title={t("home.sections.skills")} action={more("/skills", "home.skills.more")}>
-          <dl className="grid gap-x-10 sm:grid-cols-2">
+          <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
             {skillGroups.map((group) => (
-              <div key={group.key} className="grid gap-1 border-b border-line py-3">
+              <div key={group.key} className="grid content-start gap-1">
                 <dt className="text-sm font-medium text-ink">
                   {group.label ? <SheetText item={group} field="label" /> : t(`skills.groups.${group.key}`)}
                 </dt>

@@ -98,12 +98,6 @@ function PhoneScreen({ code, reduced }) {
             caretClass="ml-[0.1em] bg-wine"
           />
         </p>
-        <motion.span
-          initial={{ scaleX: reduced ? 1 : 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: reduced ? 0 : 3.4, ease: EASE }}
-          className="h-px w-[40%] origin-left bg-wine/70"
-        />
       </div>
 
       {/* Floating action button, as in Flutter's starter app */}
@@ -134,10 +128,9 @@ export default function DeviceShowcase() {
       {/* One static sentence for screen readers instead of a changing visual */}
       <figcaption className="sr-only">{t("showcase.summary")}</figcaption>
 
-      {/* Stage: burgundy baseline, plus a grey disc behind the phone */}
+      {/* Stage: a grey disc behind the phone */}
       <div aria-hidden className="relative mx-auto aspect-[4/3] w-full max-w-[34rem] [container-type:inline-size]">
         <div className="absolute inset-x-[10%] bottom-[4%] top-[2%] rounded-full bg-surface/80 dark:bg-surface/60" />
-        <div className="absolute inset-x-[6%] bottom-[4%] h-px bg-wine/60" />
 
         <div className="absolute inset-0 flex items-end justify-center pb-[4%]">
           <div className={cx("relative h-[90%] rounded-[8cqw] p-[1.2cqw] shadow-device", BEZEL)} style={{ aspectRatio: "9 / 19" }}>

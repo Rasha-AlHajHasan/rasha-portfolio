@@ -134,7 +134,7 @@ components:
 
 **Creative North Star: "The Developer's Journal"**
 
-The site reads like a working developer's journal: real code and real devices on the opening page, each page header signed with one handwritten word, and every page framed in an orderly editorial grid of hairline rules, numbered sections and small tracked labels. The working parts are shown, from the code editor in the hero to the typed localhost address, but the frame around them stays calm, so the work reads as considered rather than busy.
+The site reads like a working developer's journal: real code and real devices on the opening page, each page header signed with one handwritten word, and every page framed in an orderly editorial grid of generous space, numbered sections and small tracked labels. The working parts are shown, from the code editor in the hero to the typed localhost address, but the frame around them stays calm, so the work reads as considered rather than busy.
 
 It is warm and personal, not corporate. The warmth comes from three quiet sources rather than from colour or decoration: a single Bordeaux Thread that marks Rasha's presence (the dot after her name, the active-page underline, section numbers, the focus ring), one script word per page that feels written by hand, and generous space that lets each fact breathe. Everything else is Studio Grey, Paper White and Graphite.
 
@@ -145,7 +145,7 @@ Items marked **Pending** describe the target behaviour where today's code differ
 **Key Characteristics:**
 - Cool grey canvas, white working surfaces, graphite type, one burgundy accent.
 - Light-weight Jost display type (300), regular body (400), medium (500) for titles, labels and buttons.
-- Structure drawn with 1px hairlines and numbered section rules, not boxes and fills.
+- Structure drawn with space and numbered section headings; lines only where space alone can't separate.
 - Pill-shaped controls and tags; gently rounded (6px) cards.
 - Physical objects (phone, laptop, browser) are the only things that cast real shadows.
 - WCAG 2.2 AA in both themes.
@@ -155,7 +155,7 @@ Items marked **Pending** describe the target behaviour where today's code differ
 A near-monochrome studio palette (cool greys and graphite) held together by a single deep burgundy thread. Every colour except physical-object colours is a CSS variable (`--c-*` in `src/index.css`) with a light and a dark value; the `-dark` tokens are the dark-theme values of the same roles.
 
 ### Primary
-- **Bordeaux Thread** (`bordeaux-thread`, CSS `--c-wine`): the decorative accent. Hairlines beside labels, bullet dashes in Experience, the hero stage baseline and text selection. In dark mode (`bordeaux-thread-dark`) it is a deeper red that reads as a line on charcoal but **does not reach 3:1**, so it is decorative only there.
+- **Bordeaux Thread** (`bordeaux-thread`, CSS `--c-wine`): the decorative accent. Bullet dots in Experience and text selection. In dark mode (`bordeaux-thread-dark`) it is a deeper red that reads as a line on charcoal but **does not reach 3:1**, so it is decorative only there.
 - **Bordeaux Text** (`bordeaux-text`, CSS `--c-wine-text`): the accent tuned for meaning, used for small accent text (section numbers, "Featured", the period column) and for every interactive state (focus ring, active-page indicator, hover underline, hover icon). In light mode it equals Bordeaux Thread; in dark mode it lightens (`bordeaux-text-dark`) to stay above 3:1 for indicators and 4.5:1 for text.
 - **Bordeaux Tint** (`bordeaux-tint`): a whisper of the accent for very light backgrounds; defined but rarely used.
 
@@ -218,9 +218,9 @@ Loaded weights: Jost 300–600, with `display=swap`.
 ## Layout
 
 - **Page frame:** a single centred column, max 72rem (1152px), with gutters of 16px on phones, 24px from 640px and 32px from 1024px. The header is 64px tall, sticky, on translucent Studio Grey with a backdrop blur and a hairline below.
-- **Rhythm:** major Home sections are 64px apart (80px from 768px); the page header sits on a hairline with 32–40px below it.
+- **Rhythm:** major Home sections are 64px apart (80px from 768px); the page header has 32–40px of space below it.
 - **Grid:** content rows use a 12-column grid from 768px. Experience puts company and period in 3 columns and the role in 9. About pairs a 7-column introduction with a 5-column "at a glance" panel. Skills pairs a 4-column group name with 8 columns of chips.
-- **Lists as rows:** experience, skills groups, background entries, contact channels and summaries are rows divided by hairlines, not cards.
+- **Lists as rows:** experience, skills groups, background entries, contact channels and summaries are rows separated by space, not cards. Only the long roles on the Experience page keep a hairline between them.
 - **Optional columns hold their place:** when a row's side cell (period, date) is empty, the main cell stays in its own column; it never slides into the empty one. Home experience rows already do this (`col-start-2`). **Pending:** the About "Education & background" rows still shift when the period is blank; anchor their content column to column 4.
 
 ### Responsive
@@ -230,9 +230,9 @@ Loaded weights: Jost 300–600, with `display=swap`.
 - **Hero:** text first, then the device showcase, one column until 1024px; from 1024px the hero splits 5:6, text beside the stage. (Showcase sizing is under Components.)
 
 ### Named Rules
-**The Hairline Rule.** Structure is drawn with 1px Hairline rules (top/bottom borders and dividers), not with filled boxes. Reach for a rule before a background.
+**The Hairline Rule.** Reach for space first. A 1px Hairline is kept only for the sticky header, the mobile menu edge, the footer, card and chip outlines, and the dividers between roles on the Experience page. Don't add decorative rules beside labels, under headers or between short rows.
 
-**The Numbered Section Rule.** Sections open with a section rule: a Bordeaux number ("01"), a tracked label, a hairline that fills the row, and an optional action link at the end. Numbers count only the sections actually shown.
+**The Numbered Section Rule.** Sections open with a section rule: a Bordeaux number ("01"), a tracked label, and an optional action link at the far end of the row. Numbers count only the sections actually shown.
 
 ## Elevation & Depth
 
@@ -257,7 +257,7 @@ Refined and restrained: pill shapes, quiet hover changes, and an arrow that nudg
 - **Shape:** full pill (9999px), minimum 44px tall, 20px side padding, 14px medium text, icon gap 8px.
 - **Primary:** Graphite fill with Studio Grey text; hover eases to 85% opacity over 300ms.
 - **Outline:** a 1px Graphite border at 25% opacity with Graphite text; hover strengthens the border to full Graphite and fills with Paper White. Its label, not its border, identifies it as a button.
-- **Text link:** no pill. Graphite text with a 1px Hairline underline 6px below; hover and focus turn the underline Bordeaux Text. Used for "More about me", "View project" and section-rule actions.
+- **Text link:** no pill. Graphite text with an arrow icon and no underline at rest; hover adds a 1px Bordeaux underline 6px below. Used for "More about me", "View project" and section-rule actions.
 - **Icon nudge:** forward arrows (→ ↗) slide 2px in the reading direction on hover. **Pending:** today every button icon moves forward, including the 404 page's back arrow and non-directional icons (mail, GitHub, images). Back arrows should nudge backwards, and non-directional icons should not move.
 - **States:** default → hover (300ms) → focus-visible (ring) → active (no extra transform). There is no disabled state; unavailable actions are hidden, not greyed out.
 
@@ -265,7 +265,7 @@ Refined and restrained: pill shapes, quiet hover changes, and an arrow that nudg
 - **Tag** (technologies on projects and roles): pill, 1px Hairline border, 12px Graphite Soft text, 2px × 10px padding; always left-to-right. Not interactive.
 - **Skill chip:** pill, 1px Hairline border, 14px Graphite text, 4px × 12px padding.
 - **Filter chip** (Projects page): a pill button, 36px tall, 12px medium text, 14px side padding. Selected is a Graphite fill and border with Studio Grey text plus `aria-pressed`. Unselected is a hairline pill with Graphite Soft text; on hover the border turns Bordeaux and the text turns Graphite. Technology names stay left-to-right. **Pending:** the hover border uses Bordeaux Thread; switch it to Bordeaux Text.
-- **Label with thread:** a 24px Bordeaux hairline followed by the tracked label; opens every page header and the hero.
+- **Label:** the tracked label on its own; opens every page header.
 
 ### Cards
 - **Corner style:** 6px.
@@ -305,7 +305,7 @@ The Home hero's stage: one phone. Code is typed character by character on its sc
 A laptop opens once per browser session: the lid lifts from flat over 1.5 seconds, the screen lights with a faint Bordeaux glow, the name is typed, and the page fades in at 3.5 seconds, when the hero starts typing. A click or key press skips it. It is never shown with reduced motion. It is `aria-hidden`, and the page underneath is already loaded.
 
 ### Contact details
-Home's closing section and the Contact page share one list of rows filled from the Contact sheet tab: a round icon, a small label and the value, separated by hairlines. Rows that link somewhere carry a ↗ arrow; Location is plain text. Beside the list, Home has one sentence and a pair of pill buttons ("Send an Email", "View LinkedIn"). The wording stays direct and professional, never an availability or job-seeking message.
+Home's closing section and the Contact page share one list of rows filled from the Contact sheet tab: a round icon, a small label and the value, separated by space. Rows that link somewhere carry a ↗ arrow; Location is plain text. Beside the list, Home has one sentence and a pair of pill buttons ("Send an Email", "View LinkedIn"). The wording stays direct and professional, never an availability or job-seeking message.
 
 ### Content states (Google Sheets and images)
 The sheet can be slow, unreachable, or partially filled. Visitors should never see an error, a blank page or a broken image; every state below is designed.
@@ -315,7 +315,7 @@ The sheet can be slow, unreachable, or partially filled. Visitors should never s
 | State | Treatment |
 |---|---|
 | **Loading** | A skeleton matching the page: a short Hairline pill for the heading, then 3–4 rows of tapering length, gently pulsing (static under reduced motion). It carries `role="status"` and a page-specific label, e.g. "Loading experience". On inner pages the page header renders immediately and only the content area waits; the Home page shows the skeleton until its data arrives. |
-| **Empty tab / no active rows** | An empty state between two hairlines, centred: a Title-size line in Light weight ("Experience is being updated") and a Graphite Faint sentence pointing somewhere useful. Never an apology, an error code or a blank area. |
+| **Empty tab / no active rows** | An empty state, centred: a Title-size line in Light weight ("Experience is being updated") and a Graphite Faint sentence pointing somewhere useful. Never an apology, an error code or a blank area. |
 | **Empty optional section** | Hidden entirely, with its section number dropped (Home stats, About background, footer badges, Contact location). |
 | **Placeholder rows** (blank required cell, `is_active` FALSE, contact without a link) | Skipped, never shown as empty rows. |
 | **Missing optional cell** (no period, company, summary or technologies) | The element is omitted; neighbouring columns hold their place (see Layout → Optional columns). |
@@ -324,7 +324,7 @@ The sheet can be slow, unreachable, or partially filled. Visitors should never s
 
 **Images:**
 - **Loading:** the image well shows Sunken Grey at its final aspect ratio (16:10 on cards), so nothing jumps; the image fades in over 500ms once loaded (instantly under reduced motion). Images below the fold load lazily.
-- **No screenshots for a project:** a slim strip (80px tall, Sunken Grey, hairline below) with the platform icon in Bordeaux Text and "Screens coming soon" in Graphite Faint. The card keeps its text layout.
+- **No screenshots for a project:** a slim strip (80px tall, Sunken Grey) with the platform icon in Bordeaux Text and "Screens coming soon" in Graphite Faint. The card keeps its text layout.
 - **Broken image URL:** that image is removed silently. If it was the cover, the next screenshot becomes the cover; if none remain, the no-screenshots strip appears. Inside the gallery, a failed image shows "This image is unavailable." in Graphite Faint in place of the picture, and navigation still works.
 - **Portrait screenshots:** shown whole (`object-contain`) with breathing room, never cropped; landscape screenshots fill the well, anchored to the top.
 - **Alt text:** cover buttons are labelled "Open {project} screenshots"; gallery images are "{project} screenshot {n}".
@@ -365,7 +365,7 @@ The sheet can be slow, unreachable, or partially filled. Visitors should never s
 
 ### Do:
 - **Do** use role tokens (`canvas`, `surface`, `ink`, `line`, `wine`, `wine-text`) so every new element works in light and dark at once.
-- **Do** draw structure with 1px Hairline rules and numbered section rules before reaching for boxes or fills.
+- **Do** draw structure with space and numbered section headings before reaching for lines, boxes or fills.
 - **Do** use Bordeaux Text for every interactive state (focus ring, current page, hover underline) and pair it with a second cue (The Accessible Thread Rule).
 - **Do** set display and headline in Jost Light (300), body in Regular (400), and use Medium (500) for titles, subtitles, labels and buttons where it helps scanning.
 - **Do** give each new page header one script word, aria-hidden.
