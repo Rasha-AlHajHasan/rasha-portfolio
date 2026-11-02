@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "src/App.css"
+        ],
+        "createdAt": "2026-11-02T13:39:51.430Z",
+        "reason": "agent triage: src/App.css is an unused template file, not imported anywhere, so the font never loads"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "src/App.css"
+        ],
+        "createdAt": "2026-11-02T13:39:51.706Z",
+        "reason": "agent triage: src/App.css is an unused template file, not imported anywhere, so the font never loads"
+      }
+    ]
+  }
+}

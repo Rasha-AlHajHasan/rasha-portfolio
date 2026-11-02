@@ -79,6 +79,7 @@ All row-based tabs share these rules:
 |---|---|
 | `title` | **Required.** Job title. |
 | `company`, `period` | e.g. `2023 – Present`. |
+| `summary` | Optional. One or two sentences shown under the job title, above the bullets. |
 | `bullets` | One achievement per line (Alt+Enter / Ctrl+Enter in a cell) or separated by `\|`. Commas are fine inside a bullet. |
 | `technologies` | Separated by `\|` or commas. Shown as tags. |
 

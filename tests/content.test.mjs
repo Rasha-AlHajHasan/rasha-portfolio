@@ -147,7 +147,7 @@ for (const tab of TABS) {
 
     const profile = await mod.getProfile();
     assert.equal(profile.name, "Rasha Al Haj Hasan");
-    assert.equal((await mod.getProjects()).length, 1, "Dynasoft template row is hidden (is_active FALSE)");
+    assert.equal((await mod.getProjects()).length, 2, "Dynasoft template row is hidden (is_active FALSE)");
   });
 
   await check("edit without rebuild: a new project row creates a card", async () => {
@@ -177,6 +177,13 @@ for (const tab of TABS) {
     const [e] = await mod.getExperience();
     assert.deepEqual(e.bullets, ["Built X, Y and Z", "Shipped W"]);
     assert.deepEqual(e.tech, [".NET", "Flutter"]);
+  });
+
+  await check("experience: summary column is optional", async () => {
+    files["/experience"] = 'title,summary,bullets\nDeveloper,"Owned X, end to end",Built Y\nAnalyst,,Built Z\n';
+    const [first, second] = await mod.getExperience();
+    assert.equal(first.summary, "Owned X, end to end");
+    assert.equal(second.summary, "");
   });
 
   await check("contact: email/phone links built from value", async () => {

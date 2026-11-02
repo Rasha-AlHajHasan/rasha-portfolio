@@ -382,6 +382,7 @@ function validateExperience(rows) {
     title: row.title,
     company: row.company || "",
     period: row.period || "",
+    summary: row.summary || "",
     bullets: toList(row.bullets),
     tech: toList(row.technologies, { commas: true }),
   }));

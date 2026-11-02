@@ -23,6 +23,7 @@ function ExperienceItem({ item }) {
 
       <div className="min-w-0 md:col-span-9">
         <SheetText item={item} field="title" as="h2" className="text-heading font-normal text-ink" />
+        <SheetText item={item} field="summary" as="p" className="mt-3 max-w-3xl text-lead text-ink-soft" />
 
         {item.bullets?.length > 0 && (
           <ul className="mt-4 grid gap-2">

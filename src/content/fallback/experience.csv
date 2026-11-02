@@ -1,14 +1,17 @@
-id,title,company,period,bullets,technologies,display_order,is_active
-1,Business Analyst / Full-Stack Developer,Dynasoft Technology,,"Developed and maintained software solutions using C#, ASP.NET Core, Flutter and SQL Server.
-Worked on a multi-tenant School Information System mobile app for teachers, parents and students, building the mobile interfaces and integrating them with ASP.NET Core Web APIs.
-Worked with SQL Server queries and stored procedures.
+id,title,company,period,bullets,technologies,display_order,is_active,summary
+1,Business Analyst / Full-Stack Developer,Dynasoft Technology,,"Built the SIS mobile application in Flutter and integrated it with the existing enterprise School Information System, making its core features accessible on mobile.
+Designed and implemented the SIS backend API endpoints with ASP.NET Core Web API, from SQL Server stored procedures through business logic, and connected them to the Flutter frontend for data retrieval, submission, authentication and application workflows.
+Implemented SIS modules for marks and academic results, examinations, personal information, timetables, attendance, events, agendas and file management.
+Supported administrators, teachers, students and parents with role-based permissions and implemented branch-specific and user-specific data access, working with JWT authentication and a multi-tenant architecture.
+Supported English, Arabic and French interfaces, including right-to-left layouts, and integrated Firebase Cloud Messaging for mobile notifications.
+Troubleshot API integrations, improved application workflows and resolved frontend/backend data inconsistencies.
 Developed the ANC Fabrics mobile app with Flutter and REST APIs, and worked on its Android deployment and iOS testing.
 Contributed to a SaaS website for ERP, school management and medical software solutions, built with Blazor and ASP.NET Core.
 Worked closely with management and end users to understand requirements, troubleshoot issues and improve functionality.
-Followed Agile workflows, collaborating through Jira, Slack and ClickUp.",C# | ASP.NET Core | ASP.NET Core Web API | Blazor | Flutter | Dart | SQL Server | REST APIs | Jira | Slack | ClickUp,1,TRUE
+Followed Agile workflows, collaborating through Jira, Slack and ClickUp.",C# | ASP.NET Core | ASP.NET Core Web API | SQL Server | Stored Procedures | Flutter | Dart | REST APIs | JWT Authentication | Firebase Cloud Messaging | Blazor | Jira | Slack | ClickUp,1,TRUE,"Full-stack developer of the School Information System (SIS) mobile application, owning the complete flow from SQL Server stored procedures through ASP.NET Core Web API to the Flutter frontend."
 2,Lead Generator,ERP Cloud (Odoo Partner),,"Prospected potential customers for Odoo solutions through LinkedIn and email outreach.
-Scheduled product demos and followed up with prospects.",Odoo | LinkedIn,2,TRUE
+Scheduled product demos and followed up with prospects.",Odoo | LinkedIn,2,TRUE,
 3,Odoo Functional Intern,ERP Cloud (Odoo Partner),,"Worked with the Odoo Sales, Inventory and Accounting modules.
 Took part in requirements gathering and client discussions.
 Supported Odoo ERP demonstrations.
-Helped prepare proposals and explain Odoo solutions to prospective customers.",Odoo | Odoo Sales | Odoo Inventory | Odoo Accounting,3,TRUE
+Helped prepare proposals and explain Odoo solutions to prospective customers.",Odoo | Odoo Sales | Odoo Inventory | Odoo Accounting,3,TRUE,
