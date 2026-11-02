@@ -4,7 +4,6 @@ const TEXT = {
   meta: {
     site: "Rasha Al Haj Hasan",
     pages: {
-      home: "Software Developer",
       projects: "Projects",
       experience: "Experience",
       about: "About",

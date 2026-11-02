@@ -24,11 +24,11 @@ const ROUTES = [
   { path: "/contact", page: "contact", element: <Contact /> },
 ];
 
-// "<Page> — <Name>"
+// "<Name>" on Home, "<Page> — <Name>" elsewhere
 function useDocumentTitle(pathname) {
   useEffect(() => {
     const page = ROUTES.find((r) => r.path === pathname.replace(/(.)\/$/, "$1"))?.page || "notFound";
-    document.title = `${t(`meta.pages.${page}`)} — ${t("meta.site")}`;
+    document.title = page === "home" ? t("meta.site") : `${t(`meta.pages.${page}`)} — ${t("meta.site")}`;
   }, [pathname]);
 }
 

@@ -204,13 +204,6 @@ for (const tab of TABS) {
     assert.deepEqual(await mod.getStats(), []);
   });
 
-  await check("profile: blank image_url uses bundled portrait", async () => {
-    files["/profile"] = "field,value\nname,Test Name\nimage_url,\n";
-    const profile = await mod.getProfile();
-    assert.equal(profile.name, "Test Name");
-    assert.equal(profile.image_url, "/images/contact/rasha.jpeg");
-  });
-
   await check("*_en is an alias for a column; leftover *_ar sheet columns are ignored", async () => {
     files["/profile"] = "field,value\nname_en,Test Name\nname_ar,اسم تجريبي\ntagline,Hello\n";
     const profile = await mod.getProfile();
@@ -266,9 +259,6 @@ for (const tab of TABS) {
   const { mod, close } = await loadContent({ base: "/rasha-portfolio/" });
 
   await check("base path: site-relative images resolve under /rasha-portfolio/", async () => {
-    files["/profile"] = "field,value\nname,Test Name\nimage_url,/images/contact/rasha.jpeg\n";
-    assert.equal((await mod.getProfile()).image_url, "/rasha-portfolio/images/contact/rasha.jpeg");
-
     files["/projects"] =
       "title,cover_url,screenshots,demo_url\n" +
       "P,/images/a.png,/rasha-portfolio/images/b.png | https://cdn.example/c.png,https://demo.example\n";
@@ -277,8 +267,6 @@ for (const tab of TABS) {
     assert.deepEqual(p.gallery, ["/rasha-portfolio/images/b.png", "https://cdn.example/c.png"], "no double prefix");
     assert.equal(p.demo_url, "https://demo.example");
 
-    files["/profile"] = "field,value\nname,Test Name\n";
-    assert.equal((await mod.getProfile()).image_url, "/rasha-portfolio/images/contact/rasha.jpeg", "bundled portrait");
   });
 
   await close();

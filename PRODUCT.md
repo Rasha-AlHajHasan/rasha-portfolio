@@ -61,7 +61,7 @@ Success is a visitor who leaves with an accurate picture of her work and a clear
   - a multi-tenant School Information System mobile app;
   - the Dynasoft SaaS website (Blazor / ASP.NET Core).
   - **Client names and screenshots may be shown publicly** (confirmed), but no client screenshots are in the repository yet; `public/images/school/` is empty.
-- **Images in `public/images/`:** portrait `contact/rasha.jpeg`, `contact/rashaComputer.png`, recipe app screenshots in `receipe/`, and `recipe-app.jfif` / `school-app.jfif`.
+- **Images in `public/images/`:** recipe app screenshots in `receipe/`, and `recipe-app.jfif` / `school-app.jfif`.
 - **Contact:** rashaalhajhasan@gmail.com, +961 3 676 425, linkedin.com/in/rashahajhasan, github.com/Rasha-AlHajHasan, Lebanon.
 - **Absent, must not be fabricated:**
   - testimonials, client logos and quantified results or metrics;

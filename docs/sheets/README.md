@@ -7,7 +7,7 @@ All eight tabs are connected:
 
 | Tab | Shown on |
 |---|---|
-| **Profile** | Home hero (name, role, tagline), Home + About introduction (bio), header and footer name. `image_url` is still read but no portrait is shown. |
+| **Profile** | Home hero (tagline), Home + About introduction (bio). The name shown on the site is fixed in `src/content/text.js`. |
 | **Projects** | Projects page, Home "Selected projects" |
 | **Experience** | Experience page, Home "Experience" summary |
 | **About** | About headline, "At a glance", "Areas of expertise", Home focus list, footer badges |
@@ -134,16 +134,11 @@ The Profile tab has two columns:
 | role      | Software Developer & ERP Professional                  |
 | tagline   | Bridging business needs and technology through …       |
 | bio       | Software professional experienced in .NET … (About page; line breaks start new paragraphs) |
-| image_url | /images/contact/rasha.jpeg                             |
 
 - Only columns **A** (field) and **B** (value) are read. The `field,value` header row is optional;
   anything in columns C and beyond is ignored.
 - Field names are case-insensitive and surrounding spaces are ignored (`name ` works).
 - `name` is required. If it is missing, the site ignores the sheet and uses the bundled copy.
-- `image_url` accepts a full `https://…` link or a path to an image in `public/` (starting with `/`,
-  e.g. `/images/contact/rasha.jpeg`). Don't add `/rasha-portfolio/` yourself — the GitHub Pages build
-  adds it automatically. The same applies to `cover_url` and `screenshots` in Projects.
-  If it is blank or invalid, the bundled portrait (`/images/contact/rasha.jpeg`) is used.
 - Row order doesn't matter. Unknown fields are ignored.
 
 ### Projects tab

@@ -306,9 +306,6 @@ function toItems(rows, required, mapRow) {
 // ==========================
 // PROFILE
 // ==========================
-// The bundled portrait is used when the sheet's image_url is blank or invalid
-const DEFAULT_PROFILE_IMAGE = toUrl(toRecord(parseKeyValueCsv(profileFallback)).image_url);
-
 function validateProfile(rows) {
   const record = toRecord(rows);
   if (!record.name) return null;
@@ -318,11 +315,10 @@ function validateProfile(rows) {
     role: record.role || "",
     tagline: record.tagline || "",
     bio: record.bio || "",
-    image_url: toUrl(record.image_url) || DEFAULT_PROFILE_IMAGE,
   };
 }
 
-// { name, role, tagline, bio, image_url } — bio paragraphs are separated by line breaks
+// { name, role, tagline, bio } — bio paragraphs are separated by line breaks
 export async function getProfile() {
   const { data } = await loadRows("profile", validateProfile);
   return data;
