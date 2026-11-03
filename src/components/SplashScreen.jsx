@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import { t } from "../content/text";
 import { SPLASH_STORAGE_KEY } from "./splash";
+import SplashIcons from "./SplashIcons";
 import TypedLines from "./TypedLines";
 import { EASE } from "./utils";
 
@@ -37,7 +38,9 @@ export default function SplashScreen({ onDone }) {
       transition={{ duration: 0.5, ease: EASE }}
       className="fixed inset-0 z-[300] grid place-items-center bg-canvas px-6"
     >
-      <div className="w-full max-w-[30rem] [perspective:1100px]">
+      <SplashIcons />
+
+      <div className="relative w-full max-w-[30rem] [perspective:1100px]">
         {/* Lid: hinged on its bottom edge; bezel and screen stay dark in both themes */}
         <motion.div
           initial={{ rotateX: -86 }}
