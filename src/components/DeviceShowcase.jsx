@@ -7,6 +7,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { t } from "../content/text";
+import LebanonFlag from "./LebanonFlag";
 import { SplashContext } from "./splash";
 import TypedLines from "./TypedLines";
 import { cx, EASE } from "./utils";
@@ -85,6 +86,12 @@ function PhoneScreen({ code, reduced }) {
       <div className="mx-[6%] whitespace-pre rounded-[1.6cqw] bg-[#141416] px-[4%] py-[6%] font-mono text-[1.9cqw] leading-[1.65]">
         <TypedLines lines={code} reduced={reduced} speed={32} caretClass="bg-white/70" />
       </div>
+
+      {/* A small personal sign-off under the code */}
+      <p className="mx-[6%] mt-[5%] text-balance text-[2cqw] leading-snug text-ink-soft">
+        <LebanonFlag className="mr-[0.4em] align-[-0.12em]" />
+        Lebanese, building for the world.
+      </p>
 
       {/* The running app */}
       <div className="grid flex-1 place-content-center justify-items-center gap-[1.6cqw] px-[6%] pb-[12%]">
